@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Recliner : MonoBehaviour {
+public class Recliner : Sofa {
 	public GameObject disarmed;
 	public GameObject back;
 

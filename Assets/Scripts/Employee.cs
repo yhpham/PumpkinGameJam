@@ -20,6 +20,10 @@ public class Employee : MonoBehaviour {
     public Vector3 vel;
     public Rigidbody rigid;
 
+	public string horizontal = "PBlueHorizontal";
+	public string vertical = "PBlueVertical";
+	public string jump = "PBlueJump";
+
     void Awake() {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
@@ -30,7 +34,7 @@ public class Employee : MonoBehaviour {
         if (!CameraFrustum.S.InCameraView(collide))
             Die();
 
-        vel = new Vector3(Input.GetAxis("Horizontal") * speed, 0, Input.GetAxis("Vertical") * speed);
+        vel = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical)) * speed;
 
         if (GetArrowInput() && (vel != Vector3.zero)) {
             transform.rotation = Quaternion.LookRotation(vel);
@@ -39,7 +43,7 @@ public class Employee : MonoBehaviour {
             rigid.angularVelocity = Vector3.zero;
         }
 
-        jumpClicked = Input.GetKeyDown(KeyCode.Space);
+		jumpClicked = Input.GetAxis(jump) != 0;
 
         if (jumpClicked && isGrounded) {
             isGrounded = false;
@@ -59,17 +63,21 @@ public class Employee : MonoBehaviour {
     }
 
     bool GetArrowInput() {
-        return Input.GetKey(KeyCode.LeftArrow)
+       /* return Input.GetKey(KeyCode.LeftArrow)
             || Input.GetKey(KeyCode.RightArrow)
             || Input.GetKey(KeyCode.UpArrow)
-            || Input.GetKey(KeyCode.DownArrow);
+            || Input.GetKey(KeyCode.DownArrow);*/
+		return Input.GetAxis (horizontal) != 0 || Input.GetAxis (vertical) != 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     }
 
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag == "Floor") {
-			Die();
+			Die ();
 		} else if (col.gameObject.tag != this.gameObject.tag) {
 			//col.gameObject.GetComponent<Employee>().speed = .5f;
+			speed *=.5f;
+		} else {
+			speed *= 2f;
 		}
 	}
 
