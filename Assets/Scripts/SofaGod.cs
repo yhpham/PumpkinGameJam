@@ -8,6 +8,7 @@ public class SofaGod : MonoBehaviour {
 	public string leftBumper = "BlueLeftBumper";
 	public string rightBumper = "BlueRightBumper";
 	public string dropButton = "BlueDrop";
+	public string tag = "PBlue";
 
 	public Material matSolid;
 	public Material matTrans;
@@ -87,6 +88,7 @@ public class SofaGod : MonoBehaviour {
 		currentSofa = GameObject.Instantiate( sofas[nextSofaID] );
 		currentSofa.transform.position = transform.position;
 		currentSofa.transform.parent = this.transform;
+		currentSofa.tag = tag;
 		foreach (Renderer rend  in currentSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matSolid;
 		}
