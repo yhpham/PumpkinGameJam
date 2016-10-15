@@ -23,11 +23,14 @@ public class SofaGod : MonoBehaviour {
 	private Rigidbody rb;
 	private BoxCollider coll;
 	private bool canDrop = true;
+	private Vector3 currentInput;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		coll = GetComponent<BoxCollider> ();
+
+		currentInput = calculateInput ();
 
 		nextSofaID = Random.Range (0, sofas.Length);
 		SetNextSofa ();
@@ -50,9 +53,21 @@ public class SofaGod : MonoBehaviour {
 		}
 		cooldown -= Time.deltaTime;
 
+		//rb.velocity = new Vector3 (Input.GetAxis (horizontal), 0f, Input.GetAxis (vertical)) * moveSpeed;
 
-		rb.velocity = new Vector3 (Input.GetAxis (horizontal), 0f, Input.GetAxis (vertical)) * moveSpeed;
+		Vector3 newInput = calculateInput ();
+		if (newInput != currentInput) {
+			transform.position += newInput;
+		}
 
+		currentInput = newInput;
+	}
+
+	Vector3 calculateInput() {
+		// Returns a vector3 of the input with priority for horizontal movement
+		float h = Mathf.Round(Input.GetAxisRaw(horizontal));
+		float v = (h == 0) ? Mathf.Round(Input.GetAxisRaw (vertical)) : 0;
+		return new Vector3 (h, 0, v);
 	}
 
 	void DropSofa(){
