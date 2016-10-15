@@ -74,7 +74,6 @@ public class Employee : MonoBehaviour {
 		if (col.gameObject.tag == "Floor") {
 			Die ();
 		} else if (col.gameObject.tag != this.gameObject.tag) {
-			//col.gameObject.GetComponent<Employee>().speed = .5f;
 			speed *=.5f;
 		} else {
 			speed *= 2f;
