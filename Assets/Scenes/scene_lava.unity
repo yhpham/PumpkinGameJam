@@ -187,6 +187,7 @@ MonoBehaviour:
   materialIndex: 0
   uvAnimationRate: {x: 0.1, y: 0}
   textureName: _MainTex
+  parallax: -0.3
 --- !u!23 &647986216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ GameObject:
   - 33: {fileID: 661167033}
   - 64: {fileID: 661167032}
   - 23: {fileID: 661167031}
+  - 114: {fileID: 661167035}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -292,7 +294,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c6f6973e7945d67459e82c14587459c5, type: 2}
+  - {fileID: 2100000, guid: 21d0f2ab5aabd9745a2c73f56c34e7eb, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -333,13 +335,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 661167030}
-  m_LocalRotation: {x: -0, y: 0.56762826, z: -0.82328504, w: 0}
-  m_LocalPosition: {x: 1.350282, y: 5.851959, z: 9.75677}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.70710677, w: 0}
+  m_LocalPosition: {x: -5.1273417, y: 2.1074057, z: 2.3956835}
+  m_LocalScale: {x: 10.000019, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
   m_Children: []
-  m_Father: {fileID: 1636849130}
-  m_RootOrder: 1
+  m_Father: {fileID: 1897193348}
+  m_RootOrder: 3
+--- !u!114 &661167035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 661167030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a91d795b393a974fa60a69d5880dc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 0
+  uvAnimationRate: {x: 0, y: 0}
+  textureName: _MainTex
+  parallax: 0.07
 --- !u!1 &1020817876
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +390,7 @@ MonoBehaviour:
   materialIndex: 0
   uvAnimationRate: {x: -0.12, y: 0}
   textureName: _MainTex
+  parallax: -0.3
 --- !u!23 &1020817878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -528,6 +546,7 @@ MonoBehaviour:
   materialIndex: 0
   uvAnimationRate: {x: -0.05, y: 0}
   textureName: _MainTex
+  parallax: -0.15
 --- !u!1 &1636849125
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,13 +627,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636849125}
-  m_LocalRotation: {x: 0.18077667, y: 0, z: 0, w: 0.9835242}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.38357008, y: 0, z: 0, w: 0.9235118}
+  m_LocalPosition: {x: -5.8, y: 1.88, z: 1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 20.83, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45.11, y: 0, z: 0}
   m_Children:
   - {fileID: 1897193348}
-  - {fileID: 661167034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &1897193347
@@ -638,13 +656,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1897193347}
-  m_LocalRotation: {x: -0.18077667, y: -0, z: -0, w: 0.9835242}
-  m_LocalPosition: {x: 6.4776235, y: 3.0303974, z: 8.2670555}
+  m_LocalRotation: {x: -0.38357008, y: -0, z: -0, w: 0.9235118}
+  m_LocalPosition: {x: 6.827624, y: 4.1604185, z: 6.187497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1252937004}
   - {fileID: 1020817881}
   - {fileID: 647986219}
+  - {fileID: 661167034}
   m_Father: {fileID: 1636849130}
   m_RootOrder: 0
