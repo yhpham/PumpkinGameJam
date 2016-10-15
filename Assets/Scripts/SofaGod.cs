@@ -18,7 +18,7 @@ public class SofaGod : MonoBehaviour {
 	private GameObject aimingSofa;
 	private int nextSofaID;
 
-	private float cooldown = 2f;
+	private float cooldown = 0f;
 	public Vector3 offset = new Vector3 (0f, 10f, 0f);
 	private Rigidbody rb;
 	private BoxCollider coll;
@@ -38,6 +38,13 @@ public class SofaGod : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Vector3 newInput = calculateInput ();
+		if (newInput != currentInput) {
+			transform.position = newInput;
+		}
+
+		currentInput = newInput;
+
 		if (Input.GetButtonDown(dropButton) && cooldown < 0f && canDrop) {
 			DropSofa ();
 			cooldown = 2f;
@@ -55,19 +62,17 @@ public class SofaGod : MonoBehaviour {
 
 		//rb.velocity = new Vector3 (Input.GetAxis (horizontal), 0f, Input.GetAxis (vertical)) * moveSpeed;
 
-		Vector3 newInput = calculateInput ();
-		if (newInput != currentInput) {
-			transform.position += newInput;
-		}
 
-		currentInput = newInput;
 	}
 
 	Vector3 calculateInput() {
 		// Returns a vector3 of the input with priority for horizontal movement
 		float h = Mathf.Round(Input.GetAxisRaw(horizontal));
 		float v = (h == 0) ? Mathf.Round(Input.GetAxisRaw (vertical)) : 0;
-		return new Vector3 (h, 0, v);
+		Vector3 newPos = new Vector3 (h, 0, v) + transform.position;
+		newPos.x = Mathf.Clamp (newPos.x, CameraMovement.cam.transform.position.x - 10, CameraMovement.cam.transform.position.x + 10);
+		newPos.z = Mathf.Clamp (newPos.z, -6, 6);
+		return newPos;
 	}
 
 	void DropSofa(){
@@ -100,13 +105,11 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider coll){
-		print (coll.name);
-		canDrop = false;
+		//canDrop = false;
 	}
 
 	void OnTriggerExit(){
-		canDrop = true;
-		print ("exit");
+		//canDrop = true;
 	}
 		
 }

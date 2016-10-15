@@ -89,6 +89,7 @@ GameObject:
   - 4: {fileID: 4000012591013428}
   - 65: {fileID: 65000012610267606}
   - 54: {fileID: 54000011545548418}
+  - 114: {fileID: 114000013589038302}
   m_Layer: 0
   m_Name: Loveseat
   m_TagString: Untagged
@@ -724,7 +725,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65000012610267606
 BoxCollider:
@@ -738,3 +739,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99, y: 0.65, z: 1.99}
   m_Center: {x: 0.4, y: -0.15, z: 0}
+--- !u!114 &114000013589038302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011654388098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed0c0cfe38d2ce4c878a70fbd7100a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

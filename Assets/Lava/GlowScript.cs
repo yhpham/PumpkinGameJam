@@ -25,7 +25,7 @@ public class GlowScript : MonoBehaviour {
 			fadeIn = true;
 		Color c = GetComponent<Renderer> ().material.color;
 		c.a = (aniTime/duration) * maxAlpha;
-		print (c.a);
+		//print (c.a);
 		GetComponent<Renderer> ().material.color = c;
 	}
 }
