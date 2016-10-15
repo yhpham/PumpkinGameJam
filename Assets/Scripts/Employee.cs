@@ -1,8 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class Employee : MonoBehaviour {
+    Collider collide;
+    public bool isDead {
+        get { return _isDead; }
+    }
+    bool _isDead = false;
+
     public float speed;
     public float jumpVel;
 
@@ -17,9 +23,13 @@ public class Employee : MonoBehaviour {
     void Awake() {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
+        collide = GetComponent<Collider>();
     }
 
     void FixedUpdate() {
+        if (!CameraFrustum.S.InCameraView(collide))
+            Die();
+
         vel = new Vector3(Input.GetAxis("Horizontal") * speed, 0, Input.GetAxis("Vertical") * speed);
 
         if (GetArrowInput() && (vel != Vector3.zero)) {
@@ -64,6 +74,16 @@ public class Employee : MonoBehaviour {
 	}
 
     public void Die() {
+        _isDead = true;
 		lives.rectTransform.SetSizeWithCurrentAnchors (RectTransform.Axis.Horizontal, lives.rectTransform.rect.width - 33f);
+    }
+
+    public void Live() {
+        _isDead = false;
+    }
+
+    public Vector3 tPosition {
+        get { return transform.position; }
+        set { transform.position = value; }
     }
 }
