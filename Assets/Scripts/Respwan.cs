@@ -2,31 +2,28 @@ using UnityEngine;
 using System.Collections;
 
 public class Respwan : MonoBehaviour {
-    Employee prEmp;
-    Employee pbEmp;
+    Employee redEmployee;
+    Employee blueEmployee;
 
-    public GameObject pred;
-    public GameObject pblue;
+    public GameObject PRed;
+    public GameObject PBlue;
 
-    // Use this for initialization
     void Start() {
-        prEmp = pred.GetComponent<Employee>();
-        pbEmp = pblue.GetComponent<Employee>();
+        redEmployee = PRed.GetComponent<Employee>();
+        blueEmployee = PBlue.GetComponent<Employee>();
     }
 
-    // Update is called once per frame
     void Update() {
-        if (prEmp.isDead) {
-            Respawn(prEmp);
-        }
-        if (pbEmp.isDead) {
-            Respawn(pbEmp);
-        }
+        if (redEmployee.isDead) 
+            Respawn(redEmployee);
+
+        if (blueEmployee.isDead) 
+            Respawn(blueEmployee);
     }
 
-    void Respawn(Employee emp) {
-        emp.Live();
-        emp.tPosition = new Vector3(
-            Camera.main.transform.position.x, emp.tPosition.y, emp.tPosition.z);
+    void Respawn(Employee employee) {
+        employee.Live();
+        employee.tPosition = new Vector3(
+            Camera.main.transform.position.x, employee.tPosition.y, employee.tPosition.z);
     }
 }

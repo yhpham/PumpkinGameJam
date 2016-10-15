@@ -8,7 +8,7 @@ public class SofaGod : MonoBehaviour {
 	public string leftBumper = "BlueLeftBumper";
 	public string rightBumper = "BlueRightBumper";
 	public string dropButton = "BlueDrop";
-	public string tag = "PBlue";
+	public string sofaTag = "PBlue";
 
 	public Material matSolid;
 	public Material matTrans;
@@ -20,16 +20,12 @@ public class SofaGod : MonoBehaviour {
 	private int nextSofaID;
 
 	private float cooldown = 0f;
+	private float moveCoolDown = 0f;
 	public Vector3 offset = new Vector3 (0f, 10f, 0f);
-	private Rigidbody rb;
-	private BoxCollider coll;
 	private bool canDrop = true;
 	private Vector3 currentInput;
 
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
-		coll = GetComponent<BoxCollider> ();
-
 		currentInput = calculateInput ();
 
 		nextSofaID = Random.Range (0, sofas.Length);
@@ -38,10 +34,11 @@ public class SofaGod : MonoBehaviour {
 	
 	void Update () {
 		Vector3 newInput = calculateInput ();
-		if (newInput != currentInput) {
+		if (newInput != currentInput /*&& moveCoolDown < 0f*/) {
 			transform.position = newInput;
+			moveCoolDown = .5f;
 		}
-
+		moveCoolDown -= Time.deltaTime;
 		currentInput = newInput;
 
 		if (Input.GetButtonDown(dropButton) && cooldown < 0f && canDrop) {
@@ -67,7 +64,7 @@ public class SofaGod : MonoBehaviour {
 		// Returns a vector3 of the input with priority for horizontal movement
 		float h = Mathf.Round(Input.GetAxisRaw(horizontal));
 		float v = (h == 0) ? Mathf.Round(Input.GetAxisRaw (vertical)) : 0;
-		Vector3 newPos = new Vector3 (h, 0, v) + transform.position;
+		Vector3 newPos = new Vector3 (h, 0, v) *moveSpeed + transform.position;
 		newPos.x = Mathf.Clamp (newPos.x, CameraMovement.cam.transform.position.x - 10, CameraMovement.cam.transform.position.x + 10);
 		newPos.z = Mathf.Clamp (newPos.z, -6, 6);
 		return newPos;
@@ -85,7 +82,7 @@ public class SofaGod : MonoBehaviour {
 		currentSofa = GameObject.Instantiate( sofas[nextSofaID] );
 		currentSofa.transform.position = transform.position;
 		currentSofa.transform.parent = this.transform;
-		currentSofa.tag = tag;
+		currentSofa.tag = sofaTag;
 
 		foreach (Renderer rend  in currentSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matSolid;
