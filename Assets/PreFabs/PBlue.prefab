@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000012752959404}
   m_Layer: 0
   m_Name: PBlue
-  m_TagString: Untagged
+  m_TagString: PBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,5 +822,6 @@ MonoBehaviour:
   jumpDur: 0
   isGrounded: 1
   isJumping: 0
+  isInjured: 0
   vel: {x: 0, y: 0, z: 0}
   rigid: {fileID: 0}

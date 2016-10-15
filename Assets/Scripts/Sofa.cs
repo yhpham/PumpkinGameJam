@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class Sofa : MonoBehaviour {
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		if (transform.position.y < -5) {
-			Destroy (gameObject);
-		}
-	}
+
+    void Start () { }
+
+    void FixedUpdate () {
+        if (transform.position.y < -5) {
+            Destroy (gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision col) {
+        if (col.gameObject.tag != gameObject.tag) {
+            Employee.S.speed = .5f;
+        }
+    }
 }
