@@ -57,7 +57,7 @@ public class Employee : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag == "Floor") {
-			Die ();
+			Die();
 		} else if (col.gameObject.tag != this.gameObject.tag) {
 			//col.gameObject.GetComponent<Employee>().speed = .5f;
 		}
