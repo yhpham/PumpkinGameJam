@@ -12,8 +12,8 @@ public class Sofa : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-        if (col.gameObject.tag != gameObject.tag) {
-            Employee.S.speed = .5f;
-        }
+       /* if (col.gameObject.tag != gameObject.tag) {
+			col.gameObject.GetComponent<Employee>().speed = .5f;
+        }*/
     }
 }

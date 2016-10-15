@@ -89,6 +89,7 @@ public class SofaGod : MonoBehaviour {
 		currentSofa.transform.position = transform.position;
 		currentSofa.transform.parent = this.transform;
 		currentSofa.tag = tag;
+
 		foreach (Renderer rend  in currentSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matSolid;
 		}
