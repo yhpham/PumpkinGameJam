@@ -5,14 +5,11 @@ using System.Collections;
 public class Employee : MonoBehaviour {
     public float speed;
     public float jumpVel;
-    public float jumpDur;
 
     public bool isGrounded = true;
     public bool isJumping = false;
-    public bool isInjured = false;
 
     bool jumpClicked;
-    float jumpHeldForSeconds;
 
     public Vector3 vel;
 
@@ -53,10 +50,6 @@ public class Employee : MonoBehaviour {
         }
 
         rigid.velocity = vel;
-
-        if (isInjured) {
-            StartCoroutine(Flicker(3f, 0.2f));
-        }
     }
 
     bool GetArrowInput() {
@@ -66,15 +59,7 @@ public class Employee : MonoBehaviour {
             || Input.GetKey(KeyCode.DownArrow);
     }
 
-    IEnumerator Flicker(float duration, float waitTime) {
-        while (duration > 0f) {
-            duration -= Time.deltaTime;
-
-            GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
-
-            yield return new WaitForSeconds(waitTime);
-         }
-
-         GetComponent<Renderer>().enabled = true;
+    public void Die() {
+        
     }
 }
