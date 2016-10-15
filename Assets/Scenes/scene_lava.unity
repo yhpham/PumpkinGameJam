@@ -1191,8 +1191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc645861dc57aa49838514fe89f7f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pred: {fileID: 1223596608}
-  pblue: {fileID: 570079940}
+  PRed: {fileID: 1223596608}
+  PBlue: {fileID: 570079940}
 --- !u!1001 &1684944221
 Prefab:
   m_ObjectHideFlags: 0
