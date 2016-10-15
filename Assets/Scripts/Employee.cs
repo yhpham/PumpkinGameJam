@@ -8,21 +8,15 @@ public class Employee : MonoBehaviour {
 
     public bool isGrounded = true;
     public bool isJumping = false;
-
-	public Image lives;
-
     bool jumpClicked;
 
+	public Image lives;
     public Vector3 vel;
-
     public Rigidbody rigid;
-    //public static Employee S;
 
     void Awake() {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
-
-       // S = this;
     }
 
     void FixedUpdate() {
@@ -61,9 +55,9 @@ public class Employee : MonoBehaviour {
             || Input.GetKey(KeyCode.DownArrow);
     }
 
-	void OnCollisionEnter(Collision col){
+	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag == "Floor") {
-			Die ();
+			Die();
 		} else if (col.gameObject.tag != this.gameObject.tag) {
 			//col.gameObject.GetComponent<Employee>().speed = .5f;
 		}
