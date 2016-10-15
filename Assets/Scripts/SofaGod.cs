@@ -26,7 +26,6 @@ public class SofaGod : MonoBehaviour {
 	private bool canDrop = true;
 	private Vector3 currentInput;
 
-	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		coll = GetComponent<BoxCollider> ();
@@ -37,7 +36,6 @@ public class SofaGod : MonoBehaviour {
 		SetNextSofa ();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		Vector3 newInput = calculateInput ();
 		if (newInput != currentInput) {
@@ -54,7 +52,8 @@ public class SofaGod : MonoBehaviour {
 		if (Input.GetButtonDown(leftBumper)) {
 			currentSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, currentSofa.transform.rotation.eulerAngles.y + 90, 0f));
 			aimingSofa.transform.rotation = currentSofa.transform.rotation;
-		} else if (Input.GetButtonDown(rightBumper)) {
+		}
+		else if (Input.GetButtonDown(rightBumper)) {
 			currentSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, currentSofa.transform.rotation.eulerAngles.y - 90, 0f));
 			aimingSofa.transform.rotation = currentSofa.transform.rotation;
 
@@ -62,8 +61,6 @@ public class SofaGod : MonoBehaviour {
 		cooldown -= Time.deltaTime;
 
 		//rb.velocity = new Vector3 (Input.GetAxis (horizontal), 0f, Input.GetAxis (vertical)) * moveSpeed;
-
-
 	}
 
 	Vector3 calculateInput() {
@@ -76,7 +73,7 @@ public class SofaGod : MonoBehaviour {
 		return newPos;
 	}
 
-	void DropSofa(){
+	void DropSofa() {
 		Destroy (aimingSofa);
 		currentSofa.transform.parent = null;
 		currentSofa.GetComponent<Rigidbody> ().useGravity = true;
@@ -84,7 +81,7 @@ public class SofaGod : MonoBehaviour {
 		Invoke("SetNextSofa", .5f);
 	}
 
-	void SetNextSofa(){
+	void SetNextSofa() {
 		currentSofa = GameObject.Instantiate( sofas[nextSofaID] );
 		currentSofa.transform.position = transform.position;
 		currentSofa.transform.parent = this.transform;
@@ -107,11 +104,11 @@ public class SofaGod : MonoBehaviour {
 		nextSofaID = Random.Range (0, sofas.Length);
 	}
 
-	void OnTriggerEnter(Collider coll){
+	void OnTriggerEnter(Collider coll) {
 		//canDrop = false;
 	}
 
-	void OnTriggerExit(){
+	void OnTriggerExit() {
 		//canDrop = true;
 	}
 		

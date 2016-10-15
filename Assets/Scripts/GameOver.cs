@@ -4,20 +4,11 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void OnCollisionEnter(Collision coll){
-		if (coll.gameObject.name == "PBlue") {
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.name == "PBlue") {
 			SceneManager.LoadScene ("BlueWins");
-		} else if (coll.gameObject.name == "PRed") {
+		}
+		else if (col.gameObject.name == "PRed") {
 			SceneManager.LoadScene ("RedWins");
 		}
 	}
