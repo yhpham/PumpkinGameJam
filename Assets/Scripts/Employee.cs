@@ -2,24 +2,25 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class EmployeeMove : MonoBehaviour {
+public class Employee : MonoBehaviour {
     public float speed;
     public float jumpVel;
-    public float jumpDur;
 
     public bool isGrounded = true;
     public bool isJumping = false;
 
     bool jumpClicked;
-    float jumpHeldForSeconds;
 
     public Vector3 vel;
 
     public Rigidbody rigid;
+    public static Employee S;
 
     void Awake() {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
+
+        S = this;
     }
 
     void FixedUpdate() {
@@ -56,5 +57,9 @@ public class EmployeeMove : MonoBehaviour {
             || Input.GetKey(KeyCode.RightArrow)
             || Input.GetKey(KeyCode.UpArrow)
             || Input.GetKey(KeyCode.DownArrow);
+    }
+
+    public void Die() {
+        
     }
 }
