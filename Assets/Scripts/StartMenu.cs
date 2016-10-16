@@ -26,7 +26,7 @@ public class StartMenu : MonoBehaviour {
 	public void Intro() {
 
 		while (x < 3) {
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			if (Input.GetButtonDown ("PBlueJump")) {
 				if (x == 0) {
 					GameObject.Find("Image").GetComponent<Image>().sprite = intro1;
 				}
