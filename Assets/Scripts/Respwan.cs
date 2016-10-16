@@ -42,10 +42,16 @@ public class Respwan : MonoBehaviour {
     void SpawnEmployee(Employee employee, float zEmployeeReset) {
         employee.Live();
         employee.tPosition = new Vector3(
-            Camera.main.transform.position.x, yEmployeeReset, zEmployeeReset);
+            Mathf.Round(Camera.main.transform.position.x) + .05f, yEmployeeReset, zEmployeeReset);
     }
 
     void SpawnRecliner(float zReclinerReset, string tag, Material color) {
+        Vector3 ray = new Vector3(
+            Mathf.Round(Camera.main.transform.position.x) + .05f, yReclinerReset + 5.0f, zReclinerReset);
+
+        if (Physics.Raycast(ray, Vector3.down, 10.0f))
+            return;
+
         GameObject spawnRecliner = Instantiate(Recliner);
 
         foreach (Renderer rend in spawnRecliner.GetComponentsInChildren<Renderer>())
@@ -53,6 +59,6 @@ public class Respwan : MonoBehaviour {
 
         spawnRecliner.tag = tag;
         spawnRecliner.transform.position = new Vector3(
-            Camera.main.transform.position.x, yReclinerReset, zReclinerReset);
+            Mathf.Round(Camera.main.transform.position.x) + .05f, yReclinerReset, zReclinerReset);
     }
 }

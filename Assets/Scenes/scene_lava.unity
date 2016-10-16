@@ -594,7 +594,7 @@ GameObject:
   - 23: {fileID: 647986216}
   - 114: {fileID: 647986215}
   - 114: {fileID: 647986220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - 64: {fileID: 661167032}
   - 23: {fileID: 661167031}
   - 114: {fileID: 661167035}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - 64: {fileID: 1020817879}
   - 23: {fileID: 1020817878}
   - 114: {fileID: 1020817877}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +950,7 @@ GameObject:
   - 64: {fileID: 1252937002}
   - 23: {fileID: 1252937001}
   - 114: {fileID: 1252937005}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1766,7 +1766,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1897193348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
