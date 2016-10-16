@@ -6,6 +6,7 @@ public class Employee : MonoBehaviour {
     public float speed;
     public float jumpVel;
 
+    bool disableMovement = false;
     public bool isGrounded = true;
     public bool isJumping = false;
     bool jumpClicked;
@@ -50,7 +51,9 @@ public class Employee : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        Move();
+        if (!disableMovement) {
+            Move();
+        }
         Score();
         PowerUpTimers();
     }
@@ -98,6 +101,9 @@ public class Employee : MonoBehaviour {
         else if(col.gameObject.tag != gameObject.tag) {
             _points += pointsForCouch;
         }
+        else if(col.gameObject.tag == gameObject.tag) {
+            disableMovement = false;
+        }
     }
 
     void OnTriggerEnter(Collider col) {
@@ -143,8 +149,13 @@ public class Employee : MonoBehaviour {
         }
     }
 
+    public void GetFlung() {
+        disableMovement = true;
+    }
+
     public void Die() {
         _isDead = true;
+        disableMovement = true;
         _points += pointsForDying;
         startEarning = 0;
     }
