@@ -14,7 +14,7 @@ public class Recliner : Sofa {
 		}
 
 		if (active) {
-			coll.gameObject.GetComponent<Employee>().GetFlung();
+			coll.gameObject.GetComponent<Employee>().GetFlung(transform.position+Vector3.up*1.5f);
 			Vector3 force = Quaternion.AngleAxis (75, transform.forward) * transform.right;
 			coll.gameObject.GetComponent<Rigidbody> ().AddForce(force*throwSpeed, ForceMode.Impulse);
 			active = false;
