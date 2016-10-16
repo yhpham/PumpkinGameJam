@@ -13,9 +13,9 @@ public class Employee : MonoBehaviour {
     bool _isDead = false;
     bool disableMovement = false;
 
-	public string horizontal = "PBlueHorizontal";
-	public string vertical = "PBlueVertical";
 	public string jump = "PBlueJump";
+	public string vertical = "PBlueVertical";
+	public string horizontal = "PBlueHorizontal";
 
     float startEarning;
     const float earningInterval = 0.5f;
@@ -44,10 +44,10 @@ public class Employee : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        Landing();
         if (!disableMovement) {
             Move();
         }
-
         Score();
         PowerUpTimers();
     }
@@ -73,6 +73,16 @@ public class Employee : MonoBehaviour {
         rigid.velocity = vel;
     }
 
+    void Landing() {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.01f)) {
+            if(hit.collider.CompareTag("Floor")) {
+                return;
+            }
+            isJumping = false;
+        }
+    }
+
     bool GetArrowInput() {
 		return (Input.GetAxis(horizontal) != 0) || (Input.GetAxis(vertical) != 0);                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     }
@@ -95,8 +105,6 @@ public class Employee : MonoBehaviour {
         else if (col.gameObject.CompareTag("LevelEnd")) {
 			points.Notify(pointsForEndFirst);
         }
-
-        isJumping = false;
     }
 
     void OnTriggerEnter(Collider col) {
