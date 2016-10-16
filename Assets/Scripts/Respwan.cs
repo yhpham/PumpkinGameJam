@@ -43,12 +43,12 @@ public class Respwan : MonoBehaviour {
         employee.Live();
         employee.GetComponent<Rigidbody>().velocity = Vector3.zero;
         employee.tPosition = new Vector3(
-            Mathf.Round(Camera.main.transform.position.x) + .05f, yEmployeeReset, zEmployeeReset);
+            Mathf.Round(Camera.main.transform.position.x) + 0.5f, yEmployeeReset, zEmployeeReset);
     }
 
     void SpawnRecliner(float zReclinerReset, string tag, Material color) {
         Vector3 ray = new Vector3(
-            Mathf.Round(Camera.main.transform.position.x) + .05f, yReclinerReset + 5.0f, zReclinerReset);
+            Mathf.Round(Camera.main.transform.position.x) + 0.5f, yReclinerReset + 5.0f, zReclinerReset);
 
         if (Physics.Raycast(ray, Vector3.down, 10.0f))
             return;
@@ -60,6 +60,7 @@ public class Respwan : MonoBehaviour {
 
         spawnRecliner.tag = tag;
         spawnRecliner.transform.position = new Vector3(
-            Mathf.Round(Camera.main.transform.position.x) + .05f, yReclinerReset, zReclinerReset);
+            Mathf.Round(Camera.main.transform.position.x) + 0.5f, yReclinerReset, zReclinerReset);
+        spawnRecliner.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

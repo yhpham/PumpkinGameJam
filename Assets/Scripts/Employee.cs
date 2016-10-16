@@ -21,7 +21,7 @@ public class Employee : MonoBehaviour {
         get { return _isDead; }
     }
 
-    int _points = 0;
+    public int _points = 0;
     public int points {
         get { return _points; }
     }
@@ -58,7 +58,7 @@ public class Employee : MonoBehaviour {
 
     void Move() {
         vel = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical)) * speed;
-
+        
         if (GetArrowInput() && (vel != Vector3.zero)) {
             transform.rotation = Quaternion.LookRotation(vel);
         }
@@ -104,12 +104,12 @@ public class Employee : MonoBehaviour {
         if (invincible || extraPoints)
             return;
 
-        if (col.gameObject.CompareTag("Invincible")) {
-            invincible = true;
-        }
-        else if (col.gameObject.CompareTag("ExtraPoints")) {
-            extraPoints = true;
-        }
+        //if (col.gameObject.CompareTag("Invincible")) {
+        //    invincible = true;
+        //}
+        //else if (col.gameObject.CompareTag("ExtraPoints")) {
+        //    extraPoints = true;
+        //}
     }
 
     void PowerUpTimers() {
