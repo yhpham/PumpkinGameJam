@@ -13,6 +13,7 @@ TagManager:
   - Safe
   - Coin
   - Warranty
+  - Button
   layers:
   - Default
   - TransparentFX

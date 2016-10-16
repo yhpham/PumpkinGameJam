@@ -13,21 +13,21 @@ public class Intro : MonoBehaviour {
 	void Update() {
 		if (Input.GetButtonDown ("PBlueJump")) {
 			ChangeIntro ();
-		} else if (Input.GetButtonDown ("Back")) {
-			SceneManager.LoadScene("scene_lava");
 		}
 	}
 
 	public void ChangeIntro() {
-		x++;
 
-		if (Input.GetButtonDown ("PBlueJump")) {
-			if (x == 0) {
+		if (x == 0) {
 				GameObject.Find("Intro").GetComponent<Image>().sprite = intro2;
 			}
-			else if (x == 1) {
+		else if (x == 1) {
 				GameObject.Find("Intro").GetComponent<Image>().sprite = intro3;
 			}
+		else if (x == 2) {
+			SceneManager.LoadScene("scene_lava");
+
 		}
+		x++;
 	}
 }
