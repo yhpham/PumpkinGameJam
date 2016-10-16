@@ -15,13 +15,13 @@ public class Respwan : MonoBehaviour {
     const string redTag = "PRed";
     const string blueTag = "PBlue";
 
-    const float yEmployeeReset = -1.75f;
-    const float zRedEmployeeReset = 3.25f;
-    const float zBlueEmployeeReset = -0.75f;
+    const float yEmployeeReset = 3f;
+    const float zRedEmployeeReset = 3.5f;
+    const float zBlueEmployeeReset = -0.5f;
 
     const float yReclinerReset = -2.9f;
-    const float zRedReclinerReset = 4.0f;
-    const float zBlueReclinerReset = 0.0f;
+    const float zRedReclinerReset = 3.5f;
+    const float zBlueReclinerReset = -0.5f;
 
     void Start() {
         redEmployee = PRed.GetComponent<Employee>();
