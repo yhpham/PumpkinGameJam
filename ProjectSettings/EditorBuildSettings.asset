@@ -4,4 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+  - enabled: 1
+    path: Assets/Scenes/scene_lava.unity
+  - enabled: 1
+    path: Assets/Scenes/BlueWins.unity
+  - enabled: 1
+    path: Assets/Scenes/RedWins.unity

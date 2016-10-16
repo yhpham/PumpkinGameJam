@@ -3,11 +3,17 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Employee : MonoBehaviour {
-    Collider collide;
+    bool _isDead = false;
     public bool isDead {
         get { return _isDead; }
     }
-    bool _isDead = false;
+
+    int _points;
+    public int points {
+        get { return _points; }
+    }
+
+    float startEarning;
 
     public float speed;
     public float jumpVel;
@@ -15,8 +21,8 @@ public class Employee : MonoBehaviour {
     public bool isGrounded = true;
     public bool isJumping = false;
     bool jumpClicked;
+    bool _isDead = false;
 
-	public Image lives;
     public Vector3 vel;
     public Rigidbody rigid;
 
@@ -27,13 +33,15 @@ public class Employee : MonoBehaviour {
     void Awake() {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
-        collide = GetComponent<Collider>();
+        Live();
     }
 
     void FixedUpdate() {
-        //if (!CameraFrustum.S.InCameraView(collide))
-            //Die();
+        Move();
+        Score();
+    }
 
+    void Move() {
         vel = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical)) * speed;
 
         if (GetArrowInput() && (vel != Vector3.zero)) {
@@ -43,7 +51,7 @@ public class Employee : MonoBehaviour {
             rigid.angularVelocity = Vector3.zero;
         }
 
-		jumpClicked = Input.GetButtonDown(jump);
+        jumpClicked = Input.GetButtonDown(jump);
 
         if (jumpClicked && isGrounded) {
             isGrounded = false;
@@ -63,10 +71,6 @@ public class Employee : MonoBehaviour {
     }
 
     bool GetArrowInput() {
-       /* return Input.GetKey(KeyCode.LeftArrow)
-            || Input.GetKey(KeyCode.RightArrow)
-            || Input.GetKey(KeyCode.UpArrow)
-            || Input.GetKey(KeyCode.DownArrow);*/
 		return Input.GetAxis (horizontal) != 0 || Input.GetAxis (vertical) != 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     }
 
@@ -74,15 +78,31 @@ public class Employee : MonoBehaviour {
 		if (col.gameObject.tag == "Floor") {
 			Die ();
 		}
+        else if(col.gameObject.tag != gameObject.tag) {
+            _points -= 20;
+        }
 	}
+
+    void Score() {
+        if (_isDead)
+            return;
+
+        startEarning += Time.deltaTime;
+        if(startEarning > 0.5f) {
+            _points += 10;
+            startEarning = 0;
+        }
+    }
 
     public void Die() {
         _isDead = true;
-		lives.rectTransform.SetSizeWithCurrentAnchors (RectTransform.Axis.Horizontal, lives.rectTransform.rect.width - 33f);
+        _points -= 50;
+        startEarning = 0;
     }
 
     public void Live() {
         _isDead = false;
+        startEarning = 0;
     }
 
     public Vector3 tPosition {
