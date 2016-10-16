@@ -9,8 +9,10 @@ public class Sofa : MonoBehaviour {
 	public bool shouldFall = false;
 	public bool rebounding = false;
 
+	private AudioSource sound;
 	void Start() {
 		speed = 0f;
+		sound = GetComponent<AudioSource> ();
 	}
 
 	void Update() {
@@ -37,6 +39,12 @@ public class Sofa : MonoBehaviour {
 		}
 		else {
 			speed -= gravity * Time.deltaTime;
+		}
+	}
+
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.tag == "Floor") {
+			sound.Play ();
 		}
 	}
 

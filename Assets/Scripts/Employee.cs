@@ -18,6 +18,8 @@ public class Employee : MonoBehaviour {
 	public string horizontal = "PBlueHorizontal";
 	public string myCouchTag;
 
+	public AudioClip[] sounds;
+
     float startEarning;
     const float earningInterval = 0.5f;
 
