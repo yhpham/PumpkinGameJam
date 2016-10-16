@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013625966298}
   - 33: {fileID: 33000010695289552}
   - 23: {fileID: 23000013188507288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CubeTop1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 4: {fileID: 4000013669609464}
   - 33: {fileID: 33000012891866482}
   - 23: {fileID: 23000011261461888}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 4: {fileID: 4000012265283576}
   - 33: {fileID: 33000011718079074}
   - 23: {fileID: 23000012438991584}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - 4: {fileID: 4000011822914512}
   - 33: {fileID: 33000011677412546}
   - 23: {fileID: 23000013498091346}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CubeTop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 4: {fileID: 4000012715086544}
   - 33: {fileID: 33000011774319346}
   - 23: {fileID: 23000012945373342}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - 4: {fileID: 4000012875232328}
   - 33: {fileID: 33000011557991820}
   - 23: {fileID: 23000010195887826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CubeTop4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - 4: {fileID: 4000010296005656}
   - 33: {fileID: 33000011945763588}
   - 23: {fileID: 23000012886413166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - 65: {fileID: 65000014255306792}
   - 54: {fileID: 54000010814208476}
   - 114: {fileID: 114000010604793128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ottoman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - 4: {fileID: 4000011418900206}
   - 33: {fileID: 33000013692868948}
   - 23: {fileID: 23000013784892286}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CubeTop3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

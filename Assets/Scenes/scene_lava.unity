@@ -1249,6 +1249,10 @@ Prefab:
       propertyPath: m_Name
       value: Long Couch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014037981994, guid: cd6b4d89ddcaa47aa9d0f1e339b0a65c, type: 2}
+      propertyPath: m_TagString
+      value: PRed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd6b4d89ddcaa47aa9d0f1e339b0a65c, type: 2}
   m_IsPrefabParent: 0

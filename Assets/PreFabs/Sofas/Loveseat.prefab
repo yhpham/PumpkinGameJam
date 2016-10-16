@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011428335494}
   - 33: {fileID: 33000012314104430}
   - 23: {fileID: 23000010066611908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmrestR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 4: {fileID: 4000010052758940}
   - 33: {fileID: 33000010572793878}
   - 23: {fileID: 23000013596136586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 4: {fileID: 4000013531767506}
   - 33: {fileID: 33000012650051906}
   - 23: {fileID: 23000010972245140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SeatR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - 4: {fileID: 4000011334577432}
   - 33: {fileID: 33000012269706868}
   - 23: {fileID: 23000010732436040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmrestL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - 65: {fileID: 65000012610267606}
   - 54: {fileID: 54000011545548418}
   - 114: {fileID: 114000013589038302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Loveseat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 4: {fileID: 4000011306194470}
   - 33: {fileID: 33000011371298256}
   - 23: {fileID: 23000013315119370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - 4: {fileID: 4000014090637084}
   - 33: {fileID: 33000010441934082}
   - 23: {fileID: 23000012078894564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - 4: {fileID: 4000010709049474}
   - 33: {fileID: 33000011516257442}
   - 23: {fileID: 23000011863936258}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - 4: {fileID: 4000013675079362}
   - 33: {fileID: 33000012784261950}
   - 23: {fileID: 23000013590465218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - 4: {fileID: 4000014141459136}
   - 33: {fileID: 33000013862036222}
   - 23: {fileID: 23000010557412118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SeatL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - 4: {fileID: 4000011734665414}
   - 33: {fileID: 33000011379589334}
   - 23: {fileID: 23000013271791970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
