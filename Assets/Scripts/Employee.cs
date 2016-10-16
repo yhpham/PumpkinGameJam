@@ -95,14 +95,18 @@ public class Employee : MonoBehaviour {
         if (invincible)
             return;
 
-		if (col.gameObject.tag == "Floor") {
+		if (col.gameObject.CompareTag("Floor")) {
 			Die ();
 		}
         else if(col.gameObject.tag != gameObject.tag) {
+            disableMovement = false;
             _points += pointsForCouch;
         }
-        else if(col.gameObject.tag == gameObject.tag) {
+        else if(col.gameObject.CompareTag(gameObject.tag)) {
             disableMovement = false;
+        }
+        else if (col.gameObject.CompareTag("LevelEnd")) {
+            _points += 1000;
         }
     }
 
@@ -110,10 +114,10 @@ public class Employee : MonoBehaviour {
         if (invincible || extraPoints)
             return;
 
-        if (col.gameObject.tag == "Invincible") {
+        if (col.gameObject.CompareTag("Invincible")) {
             invincible = true;
         }
-        else if (col.gameObject.tag == "ExtraPoints") {
+        else if (col.gameObject.CompareTag("ExtraPoints")) {
             extraPoints = true;
         }
     }
@@ -157,6 +161,7 @@ public class Employee : MonoBehaviour {
         _isDead = true;
         disableMovement = true;
         _points += pointsForDying;
+        FlyingText.getInstance(pointsForDying.ToString(), tPosition, 20, Color.blue, 10f, 5f, GameObject.Find("Canvas").transform);
         startEarning = 0;
     }
 
