@@ -12,6 +12,7 @@ public class Recliner : Sofa {
 		if (coll.gameObject.tag == "Floor") {
 			return;
 		}
+
 		if (active) {
 			Vector3 force = Quaternion.AngleAxis (45, transform.forward) * transform.right;
 			coll.gameObject.GetComponent<Rigidbody> ().AddForce(force*throwSpeed, ForceMode.Impulse);

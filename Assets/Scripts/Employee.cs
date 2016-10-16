@@ -4,10 +4,6 @@ using System.Collections;
 
 public class Employee : MonoBehaviour {
     Collider collide;
-    public bool isDead {
-        get { return _isDead; }
-    }
-    bool _isDead = false;
 
     public float speed;
     public float jumpVel;
@@ -15,6 +11,7 @@ public class Employee : MonoBehaviour {
     public bool isGrounded = true;
     public bool isJumping = false;
     bool jumpClicked;
+    bool _isDead = false;
 
 	public Image lives;
     public Vector3 vel;
@@ -75,6 +72,10 @@ public class Employee : MonoBehaviour {
 			Die ();
 		}
 	}
+
+    public bool isDead {
+        get { return _isDead; }
+    }
 
     public void Die() {
         _isDead = true;
