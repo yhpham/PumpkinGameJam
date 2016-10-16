@@ -12,8 +12,8 @@ public class Respwan : MonoBehaviour {
     public Material BlueMat;
     public GameObject Recliner;
 
-    const string redTag = "PRed";
-    const string blueTag = "PBlue";
+    const string redTag = "SRed";
+    const string blueTag = "SBlue";
 
     const float yEmployeeReset = 3f;
     const float zRedEmployeeReset = 3.5f;
@@ -49,16 +49,16 @@ public class Respwan : MonoBehaviour {
     void SpawnRecliner(float zReclinerReset, string tag, Material color) {
         Vector3 ray = new Vector3(
             Mathf.Round(Camera.main.transform.position.x) + 0.5f, yReclinerReset + 5.0f, zReclinerReset);
-
-        if (Physics.Raycast(ray, Vector3.down, 10.0f))
-            return;
+		RaycastHit hit;
+		if (Physics.Raycast(ray, Vector3.down*10f, out hit))
+		if (hit.collider.CompareTag("SBlue") || hit.collider.CompareTag("SRed")) return;
 
         GameObject spawnRecliner = Instantiate(Recliner);
 
         foreach (Renderer rend in spawnRecliner.GetComponentsInChildren<Renderer>())
             rend.material = color;
 
-        spawnRecliner.tag = tag;
+		spawnRecliner.tag = tag;
         spawnRecliner.transform.position = new Vector3(
             Mathf.Round(Camera.main.transform.position.x) + 0.5f, yReclinerReset, zReclinerReset);
         spawnRecliner.GetComponent<Rigidbody>().isKinematic = true;

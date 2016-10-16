@@ -16,6 +16,7 @@ public class Employee : MonoBehaviour {
 	public string jump = "PBlueJump";
 	public string vertical = "PBlueVertical";
 	public string horizontal = "PBlueHorizontal";
+	public string myCouchTag;
 
     float startEarning;
     const float earningInterval = 0.5f;
@@ -100,16 +101,16 @@ public class Employee : MonoBehaviour {
 		if (col.gameObject.CompareTag("Floor")) {
 			Die (col.contacts[0].point);
 		}
-		else if ((col.gameObject.tag != gameObject.tag) && (col.gameObject.tag != "Safe")) {
-            disableMovement = false;
-			points.Notify( pointsForCouch, col.contacts[0].point);
-        }
-        else if (col.gameObject.CompareTag(gameObject.tag)) {
-            disableMovement = false;
-        }
+		else if (col.gameObject.CompareTag(myCouchTag) || col.gameObject.CompareTag("Safe")) {
+			disableMovement = false;
+		}
         else if (col.gameObject.CompareTag("LevelEnd")) {
 			points.Notify(pointsForEndFirst);
         }
+		else {
+			disableMovement = false;
+			points.Notify( pointsForCouch, col.contacts[0].point);
+		}
     }
 
     void OnTriggerEnter(Collider col) {
