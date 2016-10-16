@@ -7,9 +7,7 @@ public class Employee : MonoBehaviour {
     public float jumpVel;
 
     bool disableMovement = false;
-    public bool isGrounded = true;
     public bool isJumping = false;
-    bool jumpClicked;
 
     public Vector3 vel;
     public Rigidbody rigid;
@@ -68,22 +66,13 @@ public class Employee : MonoBehaviour {
             rigid.angularVelocity = Vector3.zero;
         }
 
-        jumpClicked = Input.GetButtonDown(jump);
-
-        if (jumpClicked && isGrounded) {
-            isGrounded = false;
+        if (Input.GetButtonDown(jump) && !isJumping) {
             isJumping = true;
-
             rigid.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
         }
         else {
-            isGrounded = true;
-            isJumping = false;
-            jumpClicked = false;
-
             vel.y = rigid.velocity.y;
         }
-
         rigid.velocity = vel;
     }
 
@@ -108,6 +97,7 @@ public class Employee : MonoBehaviour {
         else if (col.gameObject.CompareTag("LevelEnd")) {
             _points += 1000;
         }
+        isJumping = false;
     }
 
     void OnTriggerEnter(Collider col) {
@@ -161,7 +151,7 @@ public class Employee : MonoBehaviour {
         _isDead = true;
         disableMovement = true;
         _points += pointsForDying;
-        FlyingText.getInstance(pointsForDying.ToString(), tPosition, 20, Color.blue, 10f, 5f, GameObject.Find("Canvas").transform);
+        //FlyingText.getInstance(pointsForDying.ToString(), tPosition, 20, Color.blue, 10f, 5f, GameObject.Find("Canvas").transform);
         startEarning = 0;
     }
 
