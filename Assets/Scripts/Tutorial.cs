@@ -11,6 +11,14 @@ public class Tutorial : MonoBehaviour {
 
 	int x = 0;
 
+	void Update(){
+		if (Input.GetButtonDown ("PBlueJump")) {
+			ChangeImage ();
+		} else if (Input.GetButtonDown ("Cancel0")) {
+			Menu ();
+		}
+	}
+
 	public void Menu() {
 		SceneManager.LoadScene("Start");
 	}
