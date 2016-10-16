@@ -84,11 +84,11 @@ public class Employee : MonoBehaviour {
             return;
 
 		if (col.gameObject.CompareTag("Floor")) {
-			Die ();
+			Die (col.contacts[0].point);
 		}
 		else if(col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Safe") {
             disableMovement = false;
-			points.Notify( pointsForCouch);
+			points.Notify( pointsForCouch, col.contacts[0].point);
         }
         else if(col.gameObject.CompareTag(gameObject.tag)) {
             disableMovement = false;
@@ -147,8 +147,8 @@ public class Employee : MonoBehaviour {
         disableMovement = true;
     }
 
-    public void Die() {
-		points.Notify(pointsForDying);
+	public void Die(Vector3 pos) {
+		points.Notify(pointsForDying, pos);
         _isDead = true;
         disableMovement = true;
         //FlyingText.getInstance(pointsForDying.ToString(), tPosition, 20, Color.blue, 10f, 5f, GameObject.Find("Canvas").transform);
