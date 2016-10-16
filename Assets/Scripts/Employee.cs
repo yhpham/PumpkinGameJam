@@ -143,7 +143,7 @@ public class Employee : MonoBehaviour {
     void PowerUpTimers() {
         if (invincible) {
             if (Time.time > nextFlash) {
-                Invoke("InvincibilityFlash", 0f);
+                InvincibilityFlash();
                 nextFlash = Time.time + flashPeriod;
             }
             invincibilityTimer += Time.deltaTime;
@@ -151,6 +151,16 @@ public class Employee : MonoBehaviour {
             if (invincibilityTimer > powerUpDuration) {
                 invincible = false;
                 invincibilityTimer = 0;
+                switch (gameObject.tag) {
+                    case "PRed":
+                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
+                            rend.material = redMaterial;
+                        break;
+                    case "PBlue":
+                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
+                            rend.material = blueMaterial;
+                        break;
+                }
             }
         }
         if (extraPoints) {
