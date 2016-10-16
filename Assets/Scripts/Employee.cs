@@ -18,14 +18,14 @@ public class Employee : MonoBehaviour {
 	public string horizontal = "PBlueHorizontal";
 	public string myCouchTag;
 
-    float startEarning;
-    const float earningInterval = 0.5f;
+	public AudioClip[] sounds;
+	private AudioSource soundSource;
 
-    const int pointsForCouch = -20;
-    const int pointsForDying = -50;
-    const int pointsForLiving = 10;
-    const int pointsForEndFirst = 150;
+
     const int pointsForCoin = 50;
+    const int pointsForCouch = -20;
+    const int pointsForDying = -100;
+    const int pointsForEndFirst = 150;
 
     private Points points;
 
@@ -33,6 +33,7 @@ public class Employee : MonoBehaviour {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
         points = GetComponentInChildren<Points>();
+		soundSource = GetComponent<AudioSource> ();
         Live();
     }
 
@@ -42,8 +43,6 @@ public class Employee : MonoBehaviour {
         if (!disableMovement) {
             Move();
         }
-
-        Score();
     }
 
     void Move() {
@@ -58,6 +57,8 @@ public class Employee : MonoBehaviour {
 
         if (Input.GetButton(jump) && !isJumping) {
             isJumping = true;
+			soundSource.PlayOneShot (sounds [3], .7f);
+
             rigid.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
         }
         else {
@@ -79,7 +80,7 @@ public class Employee : MonoBehaviour {
             if (GetComponent<Rigidbody>().velocity.y != 0) {
                 return;
             }
-
+			//soundSource.PlayOneShot (sounds [2]);
             isJumping = false;
         }
         else {
@@ -93,6 +94,9 @@ public class Employee : MonoBehaviour {
 
     void OnCollisionEnter(Collision col) {
 		if (col.gameObject.CompareTag("Floor")) {
+			int idx = Mathf.Clamp(Random.Range (0, 10), 0, 1);
+			soundSource.PlayOneShot (sounds [idx]);
+			print (idx);
 			Die (col.contacts[0].point);
 		}
 		else if (col.gameObject.CompareTag(myCouchTag) || col.gameObject.CompareTag("Safe")) {
@@ -110,20 +114,8 @@ public class Employee : MonoBehaviour {
     void OnTriggerEnter(Collider col) {        
         if (col.tag == "Coin") {
 			points.Notify(pointsForCoin, transform.position);
+			soundSource.PlayOneShot (sounds [4]);
             Destroy(col.gameObject);
-        }
-    }
-
-    void Score() {
-        if (_isDead) {
-            return;
-        }
-
-        startEarning += Time.deltaTime;
-
-        if (startEarning > earningInterval) {
-            points.Notify(pointsForLiving);
-            startEarning = 0;
         }
     }
 
@@ -141,12 +133,10 @@ public class Employee : MonoBehaviour {
         points.Notify(pointsForDying, pos);
         _isDead = true;
         disableMovement = true;
-        startEarning = 0;
     }
 
     public void Live() {
         _isDead = false;
-        startEarning = 0;
     }
 
     public Vector3 tPosition {

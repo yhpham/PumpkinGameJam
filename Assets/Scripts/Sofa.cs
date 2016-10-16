@@ -9,8 +9,10 @@ public class Sofa : MonoBehaviour {
 	public bool shouldFall = false;
 	public bool rebounding = false;
 
+	private AudioSource sound;
 	void Start() {
 		speed = 0f;
+		sound = GetComponent<AudioSource> ();
 	}
 
 	void Update() {
@@ -31,6 +33,7 @@ public class Sofa : MonoBehaviour {
 		}
 
 		if (transform.position.y < -2.9f) {
+			sound.Play ();
 			rebounding = true;
 			shouldFall = false;
 			speed = -0.9f;
@@ -39,7 +42,7 @@ public class Sofa : MonoBehaviour {
 			speed -= gravity * Time.deltaTime;
 		}
 	}
-
+		
     void FixedUpdate() {
         if (transform.position.y < -10) {
             Destroy (gameObject);
