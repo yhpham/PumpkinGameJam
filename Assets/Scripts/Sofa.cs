@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Sofa : MonoBehaviour {
 
-    void FixedUpdate () {
+	void Update() {
+		Physics.IgnoreLayerCollision(9, 10, true);
+	}
+
+    void FixedUpdate() {
         if (transform.position.y < -5) {
             Destroy (gameObject);
         }
