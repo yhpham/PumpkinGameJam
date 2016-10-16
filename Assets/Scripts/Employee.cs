@@ -3,24 +3,19 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Employee : MonoBehaviour {
-    public float speed;
-    public float jumpVel;
-
-    bool disableMovement = false;
-    public bool isJumping = false;
-
     public Vector3 vel;
     public Rigidbody rigid;
+
+    public float speed;
+    public float jumpVel;
+    public bool isJumping = false;
+
+    bool _isDead = false;
+    bool disableMovement = false;
 
 	public string horizontal = "PBlueHorizontal";
 	public string vertical = "PBlueVertical";
 	public string jump = "PBlueJump";
-
-
-    bool _isDead = false;
-    public bool isDead {
-        get { return _isDead; }
-    }
 
     float startEarning;
     const float earningInterval = 0.5f;
@@ -28,6 +23,7 @@ public class Employee : MonoBehaviour {
     const int pointsForCouch = -20;
     const int pointsForDying = -50;
     const int pointsForLiving = 10;
+    const int pointsForEndFirst = 150;
 
     const float powerUpDuration = 5.0f; 
 
@@ -36,7 +32,7 @@ public class Employee : MonoBehaviour {
 
     bool extraPoints = false;
     float extraPointsTimer = 0;
-    const  int extraPointMultiplier = 2;
+    const int extraPointMultiplier = 2;
 
 	private Points points;
 
@@ -51,6 +47,7 @@ public class Employee : MonoBehaviour {
         if (!disableMovement) {
             Move();
         }
+
         Score();
         PowerUpTimers();
     }
@@ -72,55 +69,54 @@ public class Employee : MonoBehaviour {
         else {
             vel.y = rigid.velocity.y;
         }
+
         rigid.velocity = vel;
     }
 
     bool GetArrowInput() {
-		return Input.GetAxis (horizontal) != 0 || Input.GetAxis (vertical) != 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+		return (Input.GetAxis(horizontal) != 0) || (Input.GetAxis(vertical) != 0);                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     }
 
 	void OnCollisionEnter(Collision col) {
-        if (invincible)
+        if (invincible) {
             return;
+        }
 
 		if (col.gameObject.CompareTag("Floor")) {
-			Die ();
+			Die();
 		}
-		else if(col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Safe") {
+		else if ((col.gameObject.tag != gameObject.tag) && (col.gameObject.tag != "Safe")) {
             disableMovement = false;
-			points.Notify( pointsForCouch);
+			points.Notify(pointsForCouch);
         }
-        else if(col.gameObject.CompareTag(gameObject.tag)) {
+        else if (col.gameObject.CompareTag(gameObject.tag)) {
             disableMovement = false;
         }
         else if (col.gameObject.CompareTag("LevelEnd")) {
-			points.Notify(1000);
+			points.Notify(pointsForEndFirst);
         }
+
         isJumping = false;
     }
 
     void OnTriggerEnter(Collider col) {
-        if (invincible || extraPoints)
+        if (invincible || extraPoints) {
             return;
-
-        //if (col.gameObject.CompareTag("Invincible")) {
-        //    invincible = true;
-        //}
-        //else if (col.gameObject.CompareTag("ExtraPoints")) {
-        //    extraPoints = true;
-        //}
+        }
     }
 
     void PowerUpTimers() {
-        if(invincible) {
+        if (invincible) {
             invincibilityTimer += Time.deltaTime;
-            if(invincibilityTimer > powerUpDuration) {
+            
+            if (invincibilityTimer > powerUpDuration) {
                 invincible = false;
                 invincibilityTimer = 0;
             }
         }
         if (extraPoints) {
             extraPointsTimer += Time.deltaTime;
+            
             if (extraPointsTimer > powerUpDuration) {
                 extraPoints = false;
                 extraPointsTimer = 0;
@@ -129,29 +125,36 @@ public class Employee : MonoBehaviour {
     }
 
     void Score() {
-        if (_isDead)
+        if (_isDead) {
             return;
+        }
 
         startEarning += Time.deltaTime;
-        if(startEarning > earningInterval) {
-			if (extraPoints) 
+
+        if (startEarning > earningInterval) {
+			if (extraPoints) {
 				points.Notify(pointsForLiving * extraPointMultiplier);
-			else 
+            }
+			else {
 				points.Notify(pointsForLiving);
             	startEarning = 0;
+            }
         }
     }
 
     public void GetFlung() {
-		GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
         disableMovement = true;
+    }
+
+    public bool isDead {
+        get { return _isDead; }
     }
 
     public void Die() {
 		points.Notify(pointsForDying);
         _isDead = true;
         disableMovement = true;
-        //FlyingText.getInstance(pointsForDying.ToString(), tPosition, 20, Color.blue, 10f, 5f, GameObject.Find("Canvas").transform);
         startEarning = 0;
     }
 
