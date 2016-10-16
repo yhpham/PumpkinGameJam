@@ -16,11 +16,9 @@ public class Points : MonoBehaviour {
 
 	public void Notify(int value, Vector3 pos = default(Vector3)){
 		if (value < 0) {
-			print (pos);
 			GameObject pointsPop = GameObject.Instantiate (popUp);
 			pos.y = -3.25f;
 			pointsPop.transform.position = pos;
-			print (value);
 			pointsPop.GetComponentInChildren<TextMesh>().text = value.ToString ();
 		} 
 		
