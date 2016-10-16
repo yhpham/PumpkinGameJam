@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SofaGod : MonoBehaviour {
@@ -135,7 +135,9 @@ public class SofaGod : MonoBehaviour {
 		if (coll.CompareTag ("PRed")) return;
 		if (coll.CompareTag ("PBlue")) return;
 		if (coll.CompareTag("Untagged")) return;
-		++canDropCount;
+        if (coll.CompareTag("Coin")) return;
+
+        ++canDropCount;
 		setColor (invalid);
 		Vector3 pos = aimingSofa.transform.position;
 		pos.y = -1.9f;
@@ -147,7 +149,9 @@ public class SofaGod : MonoBehaviour {
 		if (coll.CompareTag ("PRed")) return;
 		if (coll.CompareTag ("PBlue")) return;
 		if (coll.CompareTag("Untagged")) return;
-		--canDropCount;
+        if (coll.CompareTag("Coin")) return;
+        --canDropCount;
+
 		if (canDropCount <= 0) {
 			setColor (myColor);
 			Vector3 pos = aimingSofa.transform.position;
