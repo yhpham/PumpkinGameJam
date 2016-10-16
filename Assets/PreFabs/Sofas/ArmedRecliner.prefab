@@ -551,6 +551,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldFall: 0
   rebounding: 0
-  disarmed: {fileID: 1000011974693032, guid: 3c636db1ed85b4b6ea00876151649dad, type: 2}
   back: {fileID: 1000010569760458}
   throwSpeed: 13
