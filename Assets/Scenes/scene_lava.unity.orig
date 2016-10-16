@@ -8311,9 +8311,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 29
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 1000012507167906, guid: f64f379c4e96a49068a7c3ed63f117b8, type: 2}
       propertyPath: m_Name
       value: Coin (30)
+=======
+    - target: {fileID: 114000011645017732, guid: 2bc3169ac7f8b4cb2a7ab8207a2ae282,
+        type: 2}
+      propertyPath: jumpVel
+      value: 6
+>>>>>>> 0c35eb5f2cccd49a2ca9de4b08d64c5c13dda3d6
       objectReference: {fileID: 0}
     - target: {fileID: 4000011628317838, guid: f64f379c4e96a49068a7c3ed63f117b8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -9463,8 +9470,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a530b369bb0e64c979e5e40c588ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   moveSpeed: 2
   started: 1
+=======
+  moveSpeed: 0.5
+  started: 0
+>>>>>>> 0c35eb5f2cccd49a2ca9de4b08d64c5c13dda3d6
   player1: {fileID: 1223596608}
   player2: {fileID: 570079940}
 --- !u!114 &1636849132
