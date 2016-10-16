@@ -11,6 +11,9 @@ public class CameraMovement : MonoBehaviour {
 
 	void Awake() {
 		cam = this;
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Coin")) {
+			go.transform.position += Vector3.up;
+		}
 	}
 
 	void Start () {

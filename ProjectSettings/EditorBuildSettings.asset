@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/RedWins.unity
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
