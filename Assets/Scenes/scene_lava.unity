@@ -7733,7 +7733,7 @@ GameObject:
   - 23: {fileID: 901338869}
   m_Layer: 0
   m_Name: LevelWall (1)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8975,6 +8975,11 @@ Prefab:
       propertyPath: sofaTag
       value: SRed
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010834929590, guid: 6ba1662e11471df4eac798caacee5221,
+        type: 2}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1636849125}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba1662e11471df4eac798caacee5221, type: 2}
   m_IsPrefabParent: 0
@@ -9050,7 +9055,7 @@ GameObject:
   - 23: {fileID: 1438186040}
   m_Layer: 0
   m_Name: LevelWall (4)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9762,7 +9767,7 @@ GameObject:
   - 23: {fileID: 1738601402}
   m_Layer: 0
   m_Name: LevelWall (3)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10016,6 +10021,11 @@ Prefab:
       propertyPath: sofaTag
       value: SBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014100477436, guid: 6a72036b98513364ab63456debf0584b,
+        type: 2}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1636849125}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a72036b98513364ab63456debf0584b, type: 2}
   m_IsPrefabParent: 0
@@ -10116,7 +10126,7 @@ GameObject:
   - 23: {fileID: 1888420333}
   m_Layer: 0
   m_Name: LevelWall (2)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11162,7 +11172,7 @@ GameObject:
   - 23: {fileID: 2137357458}
   m_Layer: 0
   m_Name: LevelWall (5)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -13,6 +13,7 @@ public class SofaGod : MonoBehaviour {
 	public Material matSolid;
 	public Material matTrans;
 	public GameObject[] sofas;
+	public GameObject mainCam;
 	public float moveSpeed = 1f;
 
 	static Color invalid = new Color (1f, 1f, 1f, 0.3f);
@@ -41,7 +42,20 @@ public class SofaGod : MonoBehaviour {
 		SetNextSofa ();
 		myColor = aimingSofa.GetComponentsInChildren<Renderer> ()[0].material.color;
 	}
-	
+
+	void LateUpdate() {
+		while (transform.position.x < mainCam.transform.position.x - (6+transform.position.z)) {
+			Vector3 pos = transform.position;
+			pos.x += 1;
+			transform.position = pos;
+		}
+
+		while (transform.position.x > mainCam.transform.position.x + (6+transform.position.z)) {
+			Vector3 pos = transform.position;
+			pos.x -= 1;
+			transform.position = pos;
+		}
+	}
 	void Update () {
 		Vector3 newInput = calculateInput ();
 		if (newInput != currentInput || moveCoolDown < 0f) {
