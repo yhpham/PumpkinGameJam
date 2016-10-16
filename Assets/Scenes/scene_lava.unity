@@ -1214,6 +1214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PRed: {fileID: 1223596608}
   PBlue: {fileID: 570079940}
+  RedMat: {fileID: 2100000, guid: da109cbec7a294914bb00247b3681639, type: 2}
+  BlueMat: {fileID: 2100000, guid: b023b32bd081c4541927d3b5034e05f8, type: 2}
+  Recliner: {fileID: 1000011035281792, guid: 3c636db1ed85b4b6ea00876151649dad, type: 2}
 --- !u!1001 &1684944221
 Prefab:
   m_ObjectHideFlags: 0
