@@ -121,7 +121,7 @@ MonoBehaviour:
   m_HorizontalAxis: 
   m_VerticalAxis: 
   m_SubmitButton: PBlueJump
-  m_CancelButton: Cancel0
+  m_CancelButton: 
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0

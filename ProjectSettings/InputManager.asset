@@ -54,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Cancel0
+    m_Name: Back
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -66,9 +66,9 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 0
-    joyNum: 11
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Fire3
     descriptiveName: 

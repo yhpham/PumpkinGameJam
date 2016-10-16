@@ -14,7 +14,7 @@ public class Tutorial : MonoBehaviour {
 	void Update(){
 		if (Input.GetButtonDown ("PBlueJump")) {
 			ChangeImage ();
-		} else if (Input.GetButtonDown ("Cancel0")) {
+		} else if (Input.GetButtonDown ("Back")) {
 			Menu ();
 		}
 	}
