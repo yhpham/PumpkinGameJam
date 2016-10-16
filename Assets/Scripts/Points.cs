@@ -15,11 +15,16 @@ public class Points : MonoBehaviour {
 	}
 
 	public void Notify(int value, Vector3 pos = default(Vector3)){
-		if (value < 0) {
+		if (pos != default(Vector3)) {
 			GameObject pointsPop = GameObject.Instantiate (popUp);
 			pos.y = -3.25f;
 			pointsPop.transform.position = pos;
-			pointsPop.GetComponentInChildren<TextMesh>().text = value.ToString ();
+			string added = "";
+			if (value > 0) {
+				added += "+";
+			}
+
+			pointsPop.GetComponentInChildren<TextMesh>().text = added + value.ToString ();
 		} 
 		
 		points += value; 
