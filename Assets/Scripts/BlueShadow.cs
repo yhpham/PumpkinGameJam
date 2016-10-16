@@ -12,7 +12,7 @@ public class BlueShadow : MonoBehaviour {
 			transform.position = new Vector3(pos.x, hit.point.y, pos.z);
 		}
 		else {
-			transform.position = new Vector3(pos.x, -20, pos.z);
+			transform.position = new Vector3(pos.x, transform.position.y, pos.z);
 		}
 	}
 }
