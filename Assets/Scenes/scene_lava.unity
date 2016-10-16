@@ -103,7 +103,7 @@ GameObject:
   - 23: {fileID: 220471}
   m_Layer: 0
   m_Name: LevelWall
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -498,6 +498,11 @@ Prefab:
       propertyPath: invincibilityMat
       value: 
       objectReference: {fileID: 2100000, guid: 0b009767698fb934a8c47996158a0dcb, type: 2}
+    - target: {fileID: 114000012752959404, guid: 548859f38a3b4408d9aeaeafe7785090,
+        type: 2}
+      propertyPath: myCouchTag
+      value: SBlue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 548859f38a3b4408d9aeaeafe7785090, type: 2}
   m_IsPrefabParent: 0
@@ -6789,6 +6794,11 @@ Prefab:
       propertyPath: invincibilityMat
       value: 
       objectReference: {fileID: 2100000, guid: 0b009767698fb934a8c47996158a0dcb, type: 2}
+    - target: {fileID: 114000011645017732, guid: 2bc3169ac7f8b4cb2a7ab8207a2ae282,
+        type: 2}
+      propertyPath: myCouchTag
+      value: SRed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bc3169ac7f8b4cb2a7ab8207a2ae282, type: 2}
   m_IsPrefabParent: 0
@@ -7476,7 +7486,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636849125}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -1.26, y: 1.88, z: -4}
+  m_LocalPosition: {x: 2.29, y: 1.88, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_Children:
@@ -7496,7 +7506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  started: 1
+  started: 0
   player1: {fileID: 1223596608}
   player2: {fileID: 570079940}
 --- !u!114 &1636849132

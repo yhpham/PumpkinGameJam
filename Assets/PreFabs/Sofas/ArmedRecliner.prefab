@@ -549,6 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee40fd3db6231144b66fc32de657548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldFall: 0
+  rebounding: 0
   disarmed: {fileID: 1000011974693032, guid: 3c636db1ed85b4b6ea00876151649dad, type: 2}
   back: {fileID: 1000010569760458}
-  throwSpeed: 10
+  throwSpeed: 13

@@ -13,10 +13,16 @@ public class Employee : MonoBehaviour {
     bool _isDead = false;
     bool disableMovement = false;
 
+<<<<<<< HEAD
 	public string jump = "PBlueJump";
 	public string vertical = "PBlueVertical";
 	public string horizontal = "PBlueHorizontal";
 	public string myCouchTag;
+=======
+    public string jump = "PBlueJump";
+    public string vertical = "PBlueVertical";
+    public string horizontal = "PBlueHorizontal";
+>>>>>>> b2dc4ea7bec617daffc886eb15bbececd9c416ad
 
     float startEarning;
     const float earningInterval = 0.5f;
@@ -102,13 +108,25 @@ public class Employee : MonoBehaviour {
             return;
         }
 
+<<<<<<< HEAD
 		if (col.gameObject.CompareTag("Floor")) {
 			Die (col.contacts[0].point);
 		}
 		else if (col.gameObject.CompareTag(myCouchTag) || col.gameObject.CompareTag("Safe")) {
 			disableMovement = false;
 		}
-       
+=======
+        if (col.gameObject.CompareTag("Floor")) {
+            Die(col.contacts[0].point);
+        }
+        else if ((col.gameObject.tag != gameObject.tag) && (col.gameObject.tag != "Safe")) {
+            disableMovement = false;
+            points.Notify(pointsForCouch, col.contacts[0].point);
+        }
+        else if (col.gameObject.CompareTag(gameObject.tag)) {
+            disableMovement = false;
+        }
+>>>>>>> b2dc4ea7bec617daffc886eb15bbececd9c416ad
         else if (col.gameObject.CompareTag("LevelEnd")) {
             points.Notify(pointsForEndFirst);
         }
@@ -143,7 +161,7 @@ public class Employee : MonoBehaviour {
     void PowerUpTimers() {
         if (invincible) {
             if (Time.time > nextFlash) {
-                InvincibilityFlash();
+                Invoke("InvincibilityFlash", 0f);
                 nextFlash = Time.time + flashPeriod;
             }
             invincibilityTimer += Time.deltaTime;
@@ -151,16 +169,6 @@ public class Employee : MonoBehaviour {
             if (invincibilityTimer > powerUpDuration) {
                 invincible = false;
                 invincibilityTimer = 0;
-                switch (gameObject.tag) {
-                    case "PRed":
-                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
-                            rend.material = redMaterial;
-                        break;
-                    case "PBlue":
-                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
-                            rend.material = blueMaterial;
-                        break;
-                }
             }
         }
         if (extraPoints) {
@@ -214,9 +222,8 @@ public class Employee : MonoBehaviour {
         }
     }
 
-	public void GetFlung(Vector3 newPos) {
+    public void GetFlung() {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-		transform.position = newPos;
         disableMovement = true;
     }
 
