@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -6,7 +6,7 @@ public class Points : MonoBehaviour {
 	public Text pointsDisplay;
 	public GameObject popUp;
 
-	private int points;
+	private int points = 1000;
 
 	void Start () {
 	}
