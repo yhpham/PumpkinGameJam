@@ -77,14 +77,15 @@ public class Employee : MonoBehaviour {
 		
         RaycastHit hit;
 		Debug.DrawRay (transform.position, Vector3.down*1.35f, Color.green);
-		if (Physics.Raycast(transform.position+Vector3.down, Vector3.down*1.35f, out hit)) {
-            if(hit.collider.CompareTag("Floor")) {
-                return;
-            }
+		if (Physics.Raycast (transform.position + Vector3.down, Vector3.down * 1.35f, out hit)) {
+			if (hit.collider.CompareTag ("Floor")) {
+				isJumping = true;
+			}
 			if (GetComponent<Rigidbody> ().velocity.y != 0)
 				return;
-            isJumping = false;
-        }
+			isJumping = false;
+		} else
+			isJumping = true;
     }
 
     bool GetArrowInput() {
