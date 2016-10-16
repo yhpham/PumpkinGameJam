@@ -19,8 +19,7 @@ public class Recliner : Sofa {
 			coll.gameObject.GetComponent<Rigidbody> ().AddForce(force*throwSpeed, ForceMode.Impulse);
 			active = false;
 
-
-		StartCoroutine ("Fling");
+			StartCoroutine ("Fling");
 		}
 	}
 

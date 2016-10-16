@@ -12,8 +12,10 @@ public class Sofa : MonoBehaviour {
 	void Start() {
 		speed = 0f;
 	}
+
 	void Update() {
 		transform.position += new Vector3 (0, speed, 0) * Time.deltaTime;
+		
 		if (rebounding) {
 			if (transform.position.y < -2.9f) {
 				speed += buoyancy * Time.deltaTime;
@@ -23,15 +25,19 @@ public class Sofa : MonoBehaviour {
 				speed = 0f;
 			}
 		}
-		if (!shouldFall)
+
+		if (!shouldFall) {
 			return;
+		}
+
 		if (transform.position.y < -2.9f) {
 			rebounding = true;
 			shouldFall = false;
 			speed = -0.9f;
 		}
-		else
+		else {
 			speed -= gravity * Time.deltaTime;
+		}
 	}
 
     void FixedUpdate() {

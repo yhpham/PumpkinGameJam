@@ -4,16 +4,6 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class StartMenu : MonoBehaviour {
-	//public GameObject instructions;
-	// Use this for initialization
-
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
 	public void StartGame(){
 		SceneManager.LoadScene("scene_lava");
@@ -27,5 +17,4 @@ public class StartMenu : MonoBehaviour {
 		//instructions.enabled = true;
 		return;
 	}
-
 }
