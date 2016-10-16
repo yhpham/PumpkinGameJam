@@ -15,6 +15,9 @@ public class SofaGod : MonoBehaviour {
 	public GameObject[] sofas;
 	public float moveSpeed = 1f;
 
+	static Color invalid = new Color (1f, 1f, 1f, 0.3f);
+	private Color myColor;
+
 	private GameObject currentSofa;
 	private GameObject aimingSofa;
 	private int nextSofaID;
@@ -22,15 +25,18 @@ public class SofaGod : MonoBehaviour {
 	private float cooldown = 0f;
 	private float moveCoolDown = 0f;
 	public Vector3 offset = new Vector3 (0f, 10f, 0f);
-	private bool canDrop = true;
 	private Vector3 currentInput;
 	bool fast = false;
+	public int canDropCount = 0;
+	bool canDrop {
+		get { return canDropCount == 0; }
+	}
 
 	void Start () {
 		currentInput = calculateInput ();
 
-		nextSofaID = Random.Range (0, sofas.Length);
 		SetNextSofa ();
+		myColor = aimingSofa.GetComponentsInChildren<Renderer> ()[0].material.color;
 	}
 	
 	void Update () {
@@ -59,12 +65,10 @@ public class SofaGod : MonoBehaviour {
 		}
 			
 		if (Input.GetButtonDown(leftBumper)) {
-			currentSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, currentSofa.transform.rotation.eulerAngles.y + 90, 0f));
-			aimingSofa.transform.rotation = currentSofa.transform.rotation;
+			aimingSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, aimingSofa.transform.rotation.eulerAngles.y - 90, 0f));
 		}
 		else if (Input.GetButtonDown(rightBumper)) {
-			currentSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, currentSofa.transform.rotation.eulerAngles.y - 90, 0f));
-			aimingSofa.transform.rotation = currentSofa.transform.rotation;
+			aimingSofa.transform.rotation = Quaternion.Euler (new Vector3 (0f, aimingSofa.transform.rotation.eulerAngles.y + 90, 0f));
 
 		}
 		cooldown -= Time.deltaTime;
@@ -83,42 +87,58 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void DropSofa() {
-		Destroy (aimingSofa);
-		currentSofa.transform.parent = null;
-		currentSofa.GetComponent<Rigidbody> ().useGravity = true;
+		
 
-		Invoke("SetNextSofa", .5f);
-	}
-
-	void SetNextSofa() {
 		currentSofa = GameObject.Instantiate( sofas[nextSofaID] );
-		currentSofa.transform.position = transform.position;
-		currentSofa.transform.parent = this.transform;
+		currentSofa.transform.position = aimingSofa.transform.position + Vector3.up*4;
+		currentSofa.transform.rotation = aimingSofa.transform.rotation;
 		currentSofa.tag = sofaTag;
+		currentSofa.GetComponent<Sofa> ().shouldFall = true;
 
 		foreach (Renderer rend  in currentSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matSolid;
 		}
 
+		Destroy (aimingSofa);
+
+		transform.position += Vector3.right * 3;
+		currentSofa.GetComponent<Rigidbody> ().useGravity = true;
+		currentSofa.GetComponent<Rigidbody> ().isKinematic = true;
+
+		SetNextSofa ();
+	}
+
+	void SetNextSofa() {
+		nextSofaID = Random.Range (0, sofas.Length);
 		aimingSofa = GameObject.Instantiate (sofas [nextSofaID]);
 		aimingSofa.transform.position = transform.position - offset;
 		aimingSofa.transform.parent = this.transform;
-		foreach(Collider c in aimingSofa.GetComponents<Collider> ()) c.isTrigger = true;
+		foreach (BoxCollider c in aimingSofa.GetComponents<BoxCollider> ()) {
+			c.isTrigger = true;
+			c.size = c.size + Vector3.up * 10;
+		}
 		Destroy (aimingSofa.GetComponent<Rigidbody> ());
 
 		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matTrans;
 		}
-
-		nextSofaID = Random.Range (0, sofas.Length);
+			
 	}
 
+	void setColor(Color c) {
+		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>())
+			rend.material.color = c;
+	}
 	void OnTriggerEnter(Collider coll) {
-		//canDrop = false;
+		if (coll.CompareTag ("Floor")) return;
+		++canDropCount;
+		setColor (invalid);
 	}
-
-	void OnTriggerExit() {
-		//canDrop = true;
+	void OnTriggerExit(Collider coll) {
+		if (coll.CompareTag ("Floor")) return;
+		--canDropCount;
+		if (canDropCount <= 0)
+			setColor (myColor);
 	}
 		
 }
