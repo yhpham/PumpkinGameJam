@@ -41,6 +41,7 @@ public class Respwan : MonoBehaviour {
 
     void SpawnEmployee(Employee employee, float zEmployeeReset) {
         employee.Live();
+        employee.GetComponent<Rigidbody>().velocity = Vector3.zero;
         employee.tPosition = new Vector3(
             Mathf.Round(Camera.main.transform.position.x) + .05f, yEmployeeReset, zEmployeeReset);
     }
