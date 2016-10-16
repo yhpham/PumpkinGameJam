@@ -12,8 +12,8 @@ public class Respwan : MonoBehaviour {
     public Material BlueMat;
     public GameObject Recliner;
 
-    const string redTag = "SRed";
-    const string blueTag = "SBlue";
+    const string redTag = "PRed";
+    const string blueTag = "PBlue";
 
     const float yEmployeeReset = 3f;
     const float zRedEmployeeReset = 3.5f;

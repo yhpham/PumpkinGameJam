@@ -34,7 +34,7 @@ public class SofaGod : MonoBehaviour {
 
 	void Start () {
 		currentInput = calculateInput ();
-
+		nextSofaID = 2; //long couch is first couch
 		SetNextSofa ();
 		myColor = aimingSofa.GetComponentsInChildren<Renderer> ()[0].material.color;
 	}
@@ -109,7 +109,6 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void SetNextSofa() {
-		nextSofaID = Random.Range (0, sofas.Length);
 		aimingSofa = GameObject.Instantiate (sofas [nextSofaID]);
 		aimingSofa.transform.position = transform.position - offset;
 		aimingSofa.transform.parent = this.transform;
@@ -122,7 +121,8 @@ public class SofaGod : MonoBehaviour {
 		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matTrans;
 		}
-			
+		nextSofaID = Random.Range (0, sofas.Length);
+
 	}
 
 	void setColor(Color c) {

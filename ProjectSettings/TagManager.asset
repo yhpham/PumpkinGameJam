@@ -10,6 +10,7 @@ TagManager:
   - LevelEnd
   - SRed
   - SBlue
+  - Safe
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - SofaGod
   - LeftWall
   - Sofa
-  - 
+  - Shadow
   - 
   - 
   - 
