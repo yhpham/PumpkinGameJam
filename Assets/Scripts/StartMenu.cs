@@ -5,16 +5,15 @@ using System.Collections;
 
 public class StartMenu : MonoBehaviour {
 
-	public void StartGame(){
+	public void StartGame() {
 		SceneManager.LoadScene("scene_lava");
 	}
 
-	public void Quit(){
-		Application.Quit();
+	public void Instructions() {
+		SceneManager.LoadScene("Tutorial");
 	}
 
-	public void Instructions(){
-		//instructions.enabled = true;
-		return;
+	public void Quit() {
+		Application.Quit();
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -10,6 +11,7 @@ public class ScoreScreen : MonoBehaviour {
 	void Start () {
 		bluePoints.text = PlayerPrefs.GetInt ("Blue").ToString();
 		redPoints.text = PlayerPrefs.GetInt ("Red").ToString();
+		Invoke ("InputEnabled", 1.5f);
 	}
 	
 	// Update is called once per frame
@@ -23,5 +25,9 @@ public class ScoreScreen : MonoBehaviour {
 
 	public void MainMenu(){
 		SceneManager.LoadScene ("Start");
+	}
+
+	private void InputEnabled(){
+		GameObject.Find ("EventSystem").GetComponent<EventSystem>().enabled = true;
 	}
 }

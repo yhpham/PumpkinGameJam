@@ -126,6 +126,7 @@ public class Employee : MonoBehaviour {
                 invincibilityTimer = 0;
             }
         }
+
         if (extraPoints) {
             extraPointsTimer += Time.deltaTime;
             

@@ -108,6 +108,8 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void SetNextSofa() {
+		nextSofaID = Random.Range (0, sofas.Length);
+
 		aimingSofa = GameObject.Instantiate (sofas [nextSofaID]);
 		aimingSofa.transform.position = transform.position - offset;
 		aimingSofa.transform.parent = this.transform;
@@ -120,7 +122,6 @@ public class SofaGod : MonoBehaviour {
 		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>()) {
 			rend.material = matTrans;
 		}
-		nextSofaID = Random.Range (0, sofas.Length);
 
 	}
 

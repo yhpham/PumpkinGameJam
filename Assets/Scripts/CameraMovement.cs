@@ -54,14 +54,17 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		if (started)
+		if (started) {
 			return;
+		}
 
-		if (player1.transform.position.x > transform.position.x)
+		if (player1.transform.position.x > transform.position.x) {
 			started = true;
+		}
 
-		if (player2.transform.position.x > transform.position.x)
+		if (player2.transform.position.x > transform.position.x) {
 			started = true;
+		}
 	}
 
 	void FixedUpdate() {
