@@ -8,6 +8,8 @@ TagManager:
   - PRed
   - PBlue
   - LevelEnd
+  - SRed
+  - SBlue
   layers:
   - Default
   - TransparentFX
