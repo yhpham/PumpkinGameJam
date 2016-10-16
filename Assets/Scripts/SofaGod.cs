@@ -100,7 +100,7 @@ public class SofaGod : MonoBehaviour {
 
 		Destroy (aimingSofa);
 
-		transform.position += Vector3.right * 3;
+		//transform.position += Vector3.right * 3;
 		currentSofa.GetComponent<Rigidbody> ().useGravity = true;
 		currentSofa.GetComponent<Rigidbody> ().isKinematic = true;
 
@@ -134,17 +134,26 @@ public class SofaGod : MonoBehaviour {
 		if (coll.CompareTag ("Floor")) return;
 		if (coll.CompareTag ("PRed")) return;
 		if (coll.CompareTag ("PBlue")) return;
+		if (coll.CompareTag("Untagged")) return;
 		++canDropCount;
 		setColor (invalid);
+		Vector3 pos = aimingSofa.transform.position;
+		pos.y = -1.9f;
+		aimingSofa.transform.position = pos;
 	}
 	
 	void OnTriggerExit(Collider coll) {
 		if (coll.CompareTag ("Floor")) return;
 		if (coll.CompareTag ("PRed")) return;
 		if (coll.CompareTag ("PBlue")) return;
+		if (coll.CompareTag("Untagged")) return;
 		--canDropCount;
-		if (canDropCount <= 0)
+		if (canDropCount <= 0) {
 			setColor (myColor);
+			Vector3 pos = aimingSofa.transform.position;
+			pos.y = -2.9f;
+			aimingSofa.transform.position = pos;
+		}
 	}
 		
 }
