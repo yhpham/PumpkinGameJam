@@ -21,6 +21,7 @@ public class Employee : MonoBehaviour {
     public bool isGrounded = true;
     public bool isJumping = false;
     bool jumpClicked;
+    bool _isDead = false;
 
     public Vector3 vel;
     public Rigidbody rigid;
