@@ -8216,6 +8216,101 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.083693795
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.21263796
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9485294
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011268657808, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011268657808, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011268657808, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011268657808, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340129308, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011379456216, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011379456216, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011379456216, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011379456216, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012527985052, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012527985052, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012527985052, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012527985052, guid: aed6618b61b050245ac5d4a632da521c,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aed6618b61b050245ac5d4a632da521c, type: 2}
   m_IsPrefabParent: 0
@@ -10261,7 +10356,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: aa7b3e18cda6d1642889dba86333c51b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
