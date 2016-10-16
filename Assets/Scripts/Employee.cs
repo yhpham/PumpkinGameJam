@@ -25,18 +25,7 @@ public class Employee : MonoBehaviour {
     const int pointsForDying = -50;
     const int pointsForLiving = 10;
     const int pointsForEndFirst = 150;
-
-    const float powerUpDuration = 5.0f;
-
-    bool invincible = false;
-    float invincibilityTimer = 0;
-    public Material redMaterial;
-    public Material blueMaterial;
-    public Material invincibilityMat;
-
-    bool extraPoints = false;
-    float extraPointsTimer = 0;
-    const int extraPointMultiplier = 2;
+    const int pointsForCoin = 50;
 
     private Points points;
 
@@ -49,11 +38,12 @@ public class Employee : MonoBehaviour {
 
     void FixedUpdate() {
         Landing();
+
         if (!disableMovement) {
             Move();
         }
+
         Score();
-        PowerUpTimers();
     }
 
     void Move() {
@@ -78,19 +68,23 @@ public class Employee : MonoBehaviour {
     }
 
     void Landing() {
-
         RaycastHit hit;
         Debug.DrawRay(transform.position, Vector3.down * 1.35f, Color.green);
+
         if (Physics.Raycast(transform.position + Vector3.down, Vector3.down * 1.35f, out hit)) {
             if (hit.collider.CompareTag("Floor")) {
                 isJumping = true;
             }
-            if (GetComponent<Rigidbody>().velocity.y != 0)
+
+            if (GetComponent<Rigidbody>().velocity.y != 0) {
                 return;
+            }
+
             isJumping = false;
         }
-        else
+        else {
             isJumping = true;
+        }
     }
 
     bool GetArrowInput() {
@@ -98,101 +92,25 @@ public class Employee : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-        if (invincible) {
-            return;
-        }
-
 		if (col.gameObject.CompareTag("Floor")) {
 			Die (col.contacts[0].point);
 		}
 		else if (col.gameObject.CompareTag(myCouchTag) || col.gameObject.CompareTag("Safe")) {
 			disableMovement = false;
 		}
-       
         else if (col.gameObject.CompareTag("LevelEnd")) {
             points.Notify(pointsForEndFirst);
         }
 		else {
 			disableMovement = false;
-			points.Notify( pointsForCouch, col.contacts[0].point);
+			points.Notify(pointsForCouch, col.contacts[0].point);
 		}
     }
 
-    void OnTriggerEnter(Collider col) {
-        if (invincible || extraPoints) {
-            return;
-        }
-        switch(col.tag) {
-            case "Coin":
-                extraPoints = true;
-                Destroy(col.gameObject);
-                break;
-
-            case "Warranty":
-                invincible = true;
-                Destroy(col.gameObject);
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    float nextFlash = 0.0f;
-    float flashPeriod = 0.1f;
-    void PowerUpTimers() {
-        if (invincible) {
-            if (Time.time > nextFlash) {
-                InvincibilityFlash();
-                nextFlash = Time.time + flashPeriod;
-            }
-            invincibilityTimer += Time.deltaTime;
-
-            if (invincibilityTimer > powerUpDuration) {
-                invincible = false;
-                invincibilityTimer = 0;
-                switch (gameObject.tag) {
-                    case "PRed":
-                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
-                            rend.material = redMaterial;
-                        break;
-                    case "PBlue":
-                        foreach (Renderer rend in GetComponentsInChildren<Renderer>())
-                            rend.material = blueMaterial;
-                        break;
-                }
-            }
-        }
-        if (extraPoints) {
-            extraPointsTimer += Time.deltaTime;
-
-            if (extraPointsTimer > powerUpDuration) {
-                extraPoints = false;
-                extraPointsTimer = 0;
-            }
-        }
-    }
-
-    bool drawInvincible = true;
-    void InvincibilityFlash() {
-        Renderer[] parts = GetComponentsInChildren<Renderer>();
-        if (drawInvincible) {
-            drawInvincible = false;
-            foreach (Renderer rend in parts)
-                rend.material = invincibilityMat;
-        }
-        else {
-            drawInvincible = true;
-            switch (gameObject.tag) {
-                case "PRed":
-                    foreach (Renderer rend in parts)
-                        rend.material = redMaterial;
-                    break;
-                case "PBlue":
-                    foreach (Renderer rend in parts)
-                        rend.material = blueMaterial;
-                    break;
-            }
+    void OnTriggerEnter(Collider col) {        
+        if (col.tag == "Coin") {
+            points.Notify(pointsForCoin);
+            Destroy(col.gameObject);
         }
     }
 
@@ -204,13 +122,8 @@ public class Employee : MonoBehaviour {
         startEarning += Time.deltaTime;
 
         if (startEarning > earningInterval) {
-            if (extraPoints) {
-                points.Notify(pointsForLiving * extraPointMultiplier);
-            }
-            else {
-                points.Notify(pointsForLiving);
-                startEarning = 0;
-            }
+            points.Notify(pointsForLiving);
+            startEarning = 0;
         }
     }
 

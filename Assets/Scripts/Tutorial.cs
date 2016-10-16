@@ -7,7 +7,6 @@ public class Tutorial : MonoBehaviour {
 
 	public Sprite player;
 	public Sprite god;
-	public Sprite powerups;
 
 	int x = 0;
 
@@ -26,14 +25,11 @@ public class Tutorial : MonoBehaviour {
 	public void ChangeImage() {
 		x++;
 
-		if (x % 3 == 0) {
+		if (x % 2 == 0) {
 			GameObject.Find("Tutorial").GetComponent<Image>().sprite = player;
 		}
-		else if (x % 3 == 1) {
+		else if (x % 2 == 1) {
 			GameObject.Find("Tutorial").GetComponent<Image>().sprite = god;
-		}
-		else if (x % 3 == 2) {
-			GameObject.Find("Tutorial").GetComponent<Image>().sprite = powerups;
 		}
 	}
 }
