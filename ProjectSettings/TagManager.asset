@@ -11,6 +11,8 @@ TagManager:
   - SRed
   - SBlue
   - Safe
+  - Coin
+  - Warranty
   layers:
   - Default
   - TransparentFX
