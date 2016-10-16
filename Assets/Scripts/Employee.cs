@@ -31,8 +31,8 @@ public class Employee : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (!CameraFrustum.S.InCameraView(collide))
-            Die();
+        //if (!CameraFrustum.S.InCameraView(collide))
+            //Die();
 
         vel = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical)) * speed;
 
@@ -43,7 +43,7 @@ public class Employee : MonoBehaviour {
             rigid.angularVelocity = Vector3.zero;
         }
 
-		jumpClicked = Input.GetAxis(jump) != 0;
+		jumpClicked = Input.GetButtonDown(jump);
 
         if (jumpClicked && isGrounded) {
             isGrounded = false;
@@ -73,11 +73,6 @@ public class Employee : MonoBehaviour {
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag == "Floor") {
 			Die ();
-		} else if (col.gameObject.tag != this.gameObject.tag) {
-			//col.gameObject.GetComponent<Employee>().speed = .5f;
-			speed *=.5f;
-		} else {
-			speed *= 2f;
 		}
 	}
 
