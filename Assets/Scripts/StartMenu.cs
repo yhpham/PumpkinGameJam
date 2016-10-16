@@ -12,7 +12,7 @@ public class StartMenu : MonoBehaviour {
 	int x = 0;
 
 	public void StartGame() {
-		Intro();
+		SceneManager.LoadScene("Intro");
 	}
 
 	public void Instructions() {
@@ -21,26 +21,5 @@ public class StartMenu : MonoBehaviour {
 
 	public void Quit() {
 		Application.Quit();
-	}
-
-	public void Intro() {
-
-		while (x < 3) {
-			if (Input.GetButtonDown ("PBlueJump")) {
-				if (x == 0) {
-					GameObject.Find("Image").GetComponent<Image>().sprite = intro1;
-				}
-				else if (x == 1) {
-					GameObject.Find("Image").GetComponent<Image>().sprite = intro2;
-				}
-				else if (x == 2) {
-					GameObject.Find("Image").GetComponent<Image>().sprite = intro3;
-				}
-
-				x++;
-			}
-		}
-			
-		SceneManager.LoadScene("scene_lava");
 	}
 }
