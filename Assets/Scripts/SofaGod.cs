@@ -24,6 +24,7 @@ public class SofaGod : MonoBehaviour {
 	public Vector3 offset = new Vector3 (0f, 10f, 0f);
 	private bool canDrop = true;
 	private Vector3 currentInput;
+	bool fast = false;
 
 	void Start () {
 		currentInput = calculateInput ();
@@ -34,9 +35,20 @@ public class SofaGod : MonoBehaviour {
 	
 	void Update () {
 		Vector3 newInput = calculateInput ();
-		if (newInput != currentInput /*&& moveCoolDown < 0f*/) {
-			transform.position = newInput;
-			moveCoolDown = .5f;
+		if (newInput != currentInput || moveCoolDown < 0f) {
+			Vector3 temp = transform.position + newInput;
+			if (temp.z < 5f && temp.z > -2f) {
+				transform.position = temp;
+				if (newInput != currentInput)
+					fast = false;
+				if (fast) {
+					moveCoolDown = 0.1f;
+
+				} else {
+					moveCoolDown = 0.3f;
+					fast = true;
+				}
+			}
 		}
 		moveCoolDown -= Time.deltaTime;
 		currentInput = newInput;
@@ -64,10 +76,10 @@ public class SofaGod : MonoBehaviour {
 		// Returns a vector3 of the input with priority for horizontal movement
 		float h = Mathf.Round(Input.GetAxisRaw(horizontal));
 		float v = (h == 0) ? Mathf.Round(Input.GetAxisRaw (vertical)) : 0;
-		Vector3 newPos = new Vector3 (h, 0, v) *moveSpeed + transform.position;
-		newPos.x = Mathf.Clamp (newPos.x, CameraMovement.cam.transform.position.x - 10, CameraMovement.cam.transform.position.x + 10);
-		newPos.z = Mathf.Clamp (newPos.z, -6, 6);
-		return newPos;
+		//Vector3 newPos = new Vector3 (h, 0, v) *moveSpeed + transform.position;
+		//newPos.x = Mathf.Clamp (newPos.x, CameraMovement.cam.transform.position.x - 10, CameraMovement.cam.transform.position.x + 10);
+		//newPos.z = Mathf.Clamp (newPos.z, -6, 6);
+		return new Vector3(h, 0, v);
 	}
 
 	void DropSofa() {
@@ -91,7 +103,7 @@ public class SofaGod : MonoBehaviour {
 		aimingSofa = GameObject.Instantiate (sofas [nextSofaID]);
 		aimingSofa.transform.position = transform.position - offset;
 		aimingSofa.transform.parent = this.transform;
-		aimingSofa.GetComponent<Collider> ().isTrigger = true;
+		foreach(Collider c in aimingSofa.GetComponents<Collider> ()) c.isTrigger = true;
 		Destroy (aimingSofa.GetComponent<Rigidbody> ());
 
 		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>()) {
