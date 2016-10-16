@@ -28,6 +28,7 @@ public class SofaGod : MonoBehaviour {
 	private Vector3 currentInput;
 	bool fast = false;
 	public int canDropCount = 0;
+	
 	bool canDrop {
 		get { return canDropCount == 0; }
 	}
@@ -87,8 +88,6 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void DropSofa() {
-		
-
 		currentSofa = GameObject.Instantiate( sofas[nextSofaID] );
 		currentSofa.transform.position = aimingSofa.transform.position + Vector3.up*4;
 		currentSofa.transform.rotation = aimingSofa.transform.rotation;
@@ -129,6 +128,7 @@ public class SofaGod : MonoBehaviour {
 		foreach (Renderer rend  in aimingSofa.GetComponentsInChildren<Renderer>())
 			rend.material.color = c;
 	}
+
 	void OnTriggerEnter(Collider coll) {
 		if (coll.CompareTag ("Floor")) return;
 		if (coll.CompareTag ("PRed")) return;
@@ -136,6 +136,7 @@ public class SofaGod : MonoBehaviour {
 		++canDropCount;
 		setColor (invalid);
 	}
+	
 	void OnTriggerExit(Collider coll) {
 		if (coll.CompareTag ("Floor")) return;
 		if (coll.CompareTag ("PRed")) return;

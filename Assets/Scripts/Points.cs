@@ -8,12 +8,11 @@ public class Points : MonoBehaviour {
 
 	private Animator anim; 
 	private int points;
-	// Use this for initialization
+
 	void Start () {
 		anim = GetComponent<Animator> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	}
 
@@ -26,6 +25,7 @@ public class Points : MonoBehaviour {
 			print (value);
 			pointsPop.GetComponentInChildren<TextMesh>().text = value.ToString ();
 		} 
+		
 		points += value; 
 		pointsDisplay.text = points.ToString();
 	}

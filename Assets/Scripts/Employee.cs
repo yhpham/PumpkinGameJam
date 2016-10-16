@@ -147,9 +147,9 @@ public class Employee : MonoBehaviour {
         disableMovement = true;
     }
 
-	public bool isDead {
-		get { return _isDead; }
-	}
+    public bool isDead {
+        get { return _isDead; }
+    }
 
 	public void Die(Vector3 pos) {
 		points.Notify(pointsForDying, pos);

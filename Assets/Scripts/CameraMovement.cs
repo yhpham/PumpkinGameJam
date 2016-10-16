@@ -13,8 +13,7 @@ public class CameraMovement : MonoBehaviour {
 		cam = this;
 	}
 
-	void Start () 
-	{
+	void Start () {
 		// set the desired aspect ratio (the values in this example are
 		// hard-coded for 16:9, but you could make them into public
 		// variables instead so you can set them at design time)
@@ -30,8 +29,7 @@ public class CameraMovement : MonoBehaviour {
 		Camera camera = GetComponent<Camera>();
 
 		// if scaled height is less than current height, add letterbox
-		if (scaleheight < 1.0f)
-		{  
+		if (scaleheight < 1.0f) {  
 			Rect rect = camera.rect;
 
 			rect.width = 1.0f;
@@ -41,8 +39,7 @@ public class CameraMovement : MonoBehaviour {
 
 			camera.rect = rect;
 		}
-		else // add pillarbox
-		{
+		else { // add pillarbox
 			float scalewidth = 1.0f / scaleheight;
 
 			Rect rect = camera.rect;
@@ -59,12 +56,17 @@ public class CameraMovement : MonoBehaviour {
 	void Update() {
 		if (started)
 			return;
+
 		if (player1.transform.position.x > transform.position.x)
 			started = true;
+
 		if (player2.transform.position.x > transform.position.x)
 			started = true;
 	}
+
 	void FixedUpdate() {
-		if(started) transform.position += new Vector3 (moveSpeed, 0f, 0f) * Time.deltaTime;
+		if (started) {
+			transform.position += new Vector3 (moveSpeed, 0f, 0f) * Time.deltaTime;
+		}
 	}
 }
