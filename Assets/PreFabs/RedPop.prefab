@@ -9,46 +9,75 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013767146410}
+  m_RootGameObject: {fileID: 1000010463315982}
   m_IsPrefabParent: 1
---- !u!1 &1000013767146410
+--- !u!1 &1000010463315982
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010641155838}
-  - 23: {fileID: 23000013431007862}
-  - 102: {fileID: 102000011610213590}
-  - 95: {fileID: 95000011173797230}
-  - 114: {fileID: 114000011926823264}
+  - 4: {fileID: 4000010933950868}
+  m_Layer: 0
+  m_Name: RedPop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000011567755668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013592673978}
+  - 23: {fileID: 23000012900839640}
+  - 102: {fileID: 102000014235552708}
+  - 95: {fileID: 95000012408534174}
+  - 114: {fileID: 114000010879579794}
   m_Layer: 0
   m_Name: RedPointsPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4000010641155838
+  m_IsActive: 1
+--- !u!4 &4000010933950868
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013767146410}
+  m_GameObject: {fileID: 1000010463315982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013592673978}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000013592673978
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011567755668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4000010933950868}
   m_RootOrder: 0
---- !u!23 &23000013431007862
+--- !u!23 &23000012900839640
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013767146410}
+  m_GameObject: {fileID: 1000011567755668}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -72,13 +101,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!95 &95000011173797230
+--- !u!95 &95000012408534174
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013767146410}
+  m_GameObject: {fileID: 1000011567755668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1da64888af3345d44b6474642f648a62, type: 2}
@@ -89,13 +118,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!102 &102000011610213590
+--- !u!102 &102000014235552708
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013767146410}
+  m_GameObject: {fileID: 1000011567755668}
   m_Text: -100
   m_OffsetZ: 0
   m_CharacterSize: 0.03
@@ -110,12 +139,12 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278914450
---- !u!114 &114000011926823264
+--- !u!114 &114000010879579794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013767146410}
+  m_GameObject: {fileID: 1000011567755668}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f85a8c6e6086e945b7f1ef625afab80, type: 3}
