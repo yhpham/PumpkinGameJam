@@ -7676,8 +7676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a530b369bb0e64c979e5e40c588ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  started: 1
+  moveSpeed: 0.5
+  started: 0
   player1: {fileID: 1223596608}
   player2: {fileID: 570079940}
 --- !u!114 &1636849132

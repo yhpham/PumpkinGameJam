@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class Recliner : Sofa {
-	public GameObject disarmed;
 	public GameObject back;
 
 	public float throwSpeed = 1f;
@@ -16,7 +15,9 @@ public class Recliner : Sofa {
 		if (active) {
 			coll.gameObject.GetComponent<Employee>().GetFlung(transform.position+Vector3.up*1.5f);
 			Vector3 force = Quaternion.AngleAxis (75, transform.forward) * transform.right;
+			print (force);
 			coll.gameObject.GetComponent<Rigidbody> ().AddForce(force*throwSpeed, ForceMode.Impulse);
+			print (coll.gameObject.GetComponent<Rigidbody> ().velocity);
 			active = false;
 
 			StartCoroutine ("Fling");

@@ -22,6 +22,8 @@ public class SofaGod : MonoBehaviour {
 	private GameObject aimingSofa;
 	private int nextSofaID;
 
+	bool first = false;
+
 	private float cooldown = 0f;
 	private float moveCoolDown = 0f;
 	public Vector3 offset = new Vector3 (0f, 10f, 0f);
@@ -108,7 +110,10 @@ public class SofaGod : MonoBehaviour {
 	}
 
 	void SetNextSofa() {
-		nextSofaID = Random.Range (0, sofas.Length);
+		if (!first) 
+			first = true;
+		else 
+			nextSofaID = Random.Range (0, sofas.Length);
 
 		aimingSofa = GameObject.Instantiate (sofas [nextSofaID]);
 		aimingSofa.transform.position = transform.position - offset;
