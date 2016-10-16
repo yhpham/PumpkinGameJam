@@ -33,6 +33,7 @@ public class Sofa : MonoBehaviour {
 		}
 
 		if (transform.position.y < -2.9f) {
+			sound.Play ();
 			rebounding = true;
 			shouldFall = false;
 			speed = -0.9f;
@@ -41,13 +42,7 @@ public class Sofa : MonoBehaviour {
 			speed -= gravity * Time.deltaTime;
 		}
 	}
-
-	void OnCollisionEnter(Collision coll){
-		if (coll.gameObject.tag == "Floor") {
-			sound.Play ();
-		}
-	}
-
+		
     void FixedUpdate() {
         if (transform.position.y < -10) {
             Destroy (gameObject);

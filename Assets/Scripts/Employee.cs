@@ -19,6 +19,7 @@ public class Employee : MonoBehaviour {
 	public string myCouchTag;
 
 	public AudioClip[] sounds;
+	private AudioSource soundSource;
 
     float startEarning;
     const float earningInterval = 0.5f;
@@ -35,6 +36,7 @@ public class Employee : MonoBehaviour {
         Cursor.visible = false;
         rigid = GetComponent<Rigidbody>();
         points = GetComponentInChildren<Points>();
+		soundSource = GetComponent<AudioSource> ();
         Live();
     }
 
@@ -60,6 +62,8 @@ public class Employee : MonoBehaviour {
 
         if (Input.GetButton(jump) && !isJumping) {
             isJumping = true;
+			soundSource.PlayOneShot (sounds [3], .7f);
+
             rigid.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
         }
         else {
@@ -81,7 +85,7 @@ public class Employee : MonoBehaviour {
             if (GetComponent<Rigidbody>().velocity.y != 0) {
                 return;
             }
-
+			//soundSource.PlayOneShot (sounds [2]);
             isJumping = false;
         }
         else {
@@ -95,6 +99,9 @@ public class Employee : MonoBehaviour {
 
     void OnCollisionEnter(Collision col) {
 		if (col.gameObject.CompareTag("Floor")) {
+			int idx = Mathf.Clamp(Random.Range (0, 10), 0, 1);
+			soundSource.PlayOneShot (sounds [idx]);
+			print (idx);
 			Die (col.contacts[0].point);
 		}
 		else if (col.gameObject.CompareTag(myCouchTag) || col.gameObject.CompareTag("Safe")) {
@@ -112,6 +119,7 @@ public class Employee : MonoBehaviour {
     void OnTriggerEnter(Collider col) {        
         if (col.tag == "Coin") {
 			points.Notify(pointsForCoin, transform.position);
+			soundSource.PlayOneShot (sounds [4]);
             Destroy(col.gameObject);
         }
     }
