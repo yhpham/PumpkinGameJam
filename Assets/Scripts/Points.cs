@@ -4,24 +4,28 @@ using System.Collections;
 
 public class Points : MonoBehaviour {
 	public Text pointsDisplay;
+	public GameObject popUp;
 
-	private string pointsPop;
 	private Animator anim; 
 	private int points;
 
 	void Start () {
-		pointsPop = GetComponent<TextMesh> ().text;
+		//pointsPop = GetComponent<TextMesh> ().text;
 		anim = GetComponent<Animator> ();
 	}
 
 	void Update () {
-		transform.rotation = Quaternion.Euler (new Vector3 (0f, 0f, -transform.parent.rotation.z));
+		//transform.rotation = Quaternion.Euler (new Vector3 (0f, 0f, -transform.parent.rotation.z));
 	}
 
-	public void Notify(int value){
+	public void Notify(int value, Vector3 pos = default(Vector3)){
 		if (value < 0) {
-			pointsPop = value.ToString ();
-			anim.SetTrigger ("Animate");
+			print (pos);
+			GameObject pointsPop = GameObject.Instantiate (popUp);
+			pointsPop.transform.position = pos;
+			print (pointsPop.transform.position);
+			pointsPop.GetComponent<TextMesh>().text = value.ToString ();
+			//anim.SetTrigger ("Animate");
 		} 
 		
 		points += value; 

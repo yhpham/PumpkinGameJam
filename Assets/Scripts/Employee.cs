@@ -83,11 +83,11 @@ public class Employee : MonoBehaviour {
         }
 
 		if (col.gameObject.CompareTag("Floor")) {
-			Die();
+			Die (col.contacts[0].point);
 		}
 		else if ((col.gameObject.tag != gameObject.tag) && (col.gameObject.tag != "Safe")) {
             disableMovement = false;
-			points.Notify(pointsForCouch);
+			points.Notify( pointsForCouch, col.contacts[0].point);
         }
         else if (col.gameObject.CompareTag(gameObject.tag)) {
             disableMovement = false;
@@ -147,12 +147,8 @@ public class Employee : MonoBehaviour {
         disableMovement = true;
     }
 
-    public bool isDead {
-        get { return _isDead; }
-    }
-
-    public void Die() {
-		points.Notify(pointsForDying);
+	public void Die(Vector3 pos) {
+		points.Notify(pointsForDying, pos);
         _isDead = true;
         disableMovement = true;
         startEarning = 0;
