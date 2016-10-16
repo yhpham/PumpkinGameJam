@@ -6,6 +6,9 @@ public class CameraMovement : MonoBehaviour {
 	public float moveSpeed = 1f;
 	public bool started = false;
 
+	public GameObject player1;
+	public GameObject player2;
+
 	void Awake() {
 		cam = this;
 	}
@@ -52,7 +55,15 @@ public class CameraMovement : MonoBehaviour {
 			camera.rect = rect;
 		}
 	}
-	
+
+	void Update() {
+		if (started)
+			return;
+		if (player1.transform.position.x > transform.position.x)
+			started = true;
+		if (player2.transform.position.x > transform.position.x)
+			started = true;
+	}
 	void FixedUpdate() {
 		if(started) transform.position += new Vector3 (moveSpeed, 0f, 0f) * Time.deltaTime;
 	}

@@ -131,11 +131,15 @@ public class SofaGod : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider coll) {
 		if (coll.CompareTag ("Floor")) return;
+		if (coll.CompareTag ("PRed")) return;
+		if (coll.CompareTag ("PBlue")) return;
 		++canDropCount;
 		setColor (invalid);
 	}
 	void OnTriggerExit(Collider coll) {
 		if (coll.CompareTag ("Floor")) return;
+		if (coll.CompareTag ("PRed")) return;
+		if (coll.CompareTag ("PBlue")) return;
 		--canDropCount;
 		if (canDropCount <= 0)
 			setColor (myColor);

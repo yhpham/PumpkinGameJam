@@ -8,11 +8,11 @@ public class BlueShadow : MonoBehaviour {
 	void Update () {
 		Vector3 pos = GameObject.Find("PBlue").transform.position;
 
-		if (Physics.Raycast(pos, -Vector3.up, out hit)) {
+		if (Physics.Raycast(pos, -Vector3.up*20, out hit)) {
 			transform.position = new Vector3(pos.x, hit.point.y, pos.z);
 		}
 		else {
-			transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+			transform.position = new Vector3(pos.x, -20, pos.z);
 		}
 	}
 }

@@ -8,7 +8,7 @@ public class RedShadow : MonoBehaviour {
 	void Update () {
 		Vector3 pos = GameObject.Find("PRed").transform.position;
 
-		if (Physics.Raycast(pos, -Vector3.up, out hit)) {
+		if (Physics.Raycast(pos, -Vector3.up*10, out hit)) {
 		 	transform.position = new Vector3(pos.x, hit.point.y, pos.z);
 		}
 		else {

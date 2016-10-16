@@ -144,6 +144,7 @@ public class Employee : MonoBehaviour {
     }
 
     public void GetFlung() {
+		GetComponent<Rigidbody> ().velocity = Vector3.zero;
         disableMovement = true;
     }
 

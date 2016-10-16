@@ -38,6 +38,7 @@ GameObject:
   - 4: {fileID: 4000010811958936}
   - 65: {fileID: 65000013098864314}
   - 54: {fileID: 54000013660791272}
+  - 114: {fileID: 114000013128594788}
   m_Layer: 10
   m_Name: Recliner
   m_TagString: Untagged
@@ -537,3 +538,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99, y: 0.65, z: 0.99}
   m_Center: {x: 0, y: -0.15, z: 0}
+--- !u!114 &114000013128594788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011035281792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed0c0cfe38d2ce4c878a70fbd7100a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldFall: 0
+  rebounding: 0

@@ -7,7 +7,7 @@ public class Sofa : MonoBehaviour {
 	const float gravity = 9.81f;
 	const float buoyancy = 1.8f;
 	public bool shouldFall = false;
-	bool rebounding = false;
+	public bool rebounding = false;
 
 	void Start() {
 		speed = 0f;

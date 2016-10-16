@@ -12,13 +12,13 @@ public class Respwan : MonoBehaviour {
     public Material BlueMat;
     public GameObject Recliner;
 
-    const string redTag = "PRed";
-    const string blueTag = "PBlue";
+    const string redTag = "SRed";
+    const string blueTag = "SBlue";
 
     const float yEmployeeReset = 3f;
     const float zRedEmployeeReset = 3.5f;
     const float zBlueEmployeeReset = -0.5f;
-    const float yReclinerReset = -2.9f;
+    const float yReclinerReset = -3.9f;
 	const float zRedReclinerReset = 3.5f;
 	const float zBlueReclinerReset = -0.5f;
 
@@ -62,5 +62,6 @@ public class Respwan : MonoBehaviour {
         spawnRecliner.transform.position = new Vector3(
             Mathf.Round(Camera.main.transform.position.x) + 0.5f, yReclinerReset, zReclinerReset);
         spawnRecliner.GetComponent<Rigidbody>().isKinematic = true;
+		spawnRecliner.GetComponent<Sofa> ().rebounding = true;
     }
 }
