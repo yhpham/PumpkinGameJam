@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsDisplay: {fileID: 808628019}
-  popUp: {fileID: 1000013556649390, guid: b4985aae8d4169a448c713af78d8257f, type: 2}
+  popUp: {fileID: 0}
 --- !u!1 &647986214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsDisplay: {fileID: 1966213634}
-  popUp: {fileID: 1000013767146410, guid: 99c50c8e8e50aa04fa53ac7120f6536f, type: 2}
+  popUp: {fileID: 0}
 --- !u!1 &1252937000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  started: 0
+  started: 1
   player1: {fileID: 1223596608}
   player2: {fileID: 570079940}
 --- !u!114 &1636849132
