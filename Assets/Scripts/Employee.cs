@@ -123,10 +123,14 @@ public class Employee : MonoBehaviour {
         switch(col.tag) {
             case "Coin":
                 extraPoints = true;
+                Destroy(col.gameObject);
                 break;
+
             case "Warranty":
                 invincible = true;
+                Destroy(col.gameObject);
                 break;
+
             default:
                 break;
         }
