@@ -10,10 +10,13 @@ public class GameOver : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-        Text bluePoints = GameObject.Find("BluePoints").GetComponent<Text>();
-        Text redPoints = GameObject.Find("RedPoints").GetComponent<Text>();
 
-        if (int.Parse(bluePoints.text) > int.Parse(redPoints.text)) {
+		int blue = int.Parse(GameObject.Find("BluePoints").GetComponent<Text>().text);
+		int red = int.Parse(GameObject.Find("RedPoints").GetComponent<Text>().text);
+		PlayerPrefs.SetInt ("Blue", blue);
+		PlayerPrefs.SetInt ("Red", red);
+
+        if (blue > red) {
             SceneManager.LoadScene ("BlueWins");
         }
         else {

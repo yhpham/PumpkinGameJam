@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsDisplay: {fileID: 808628019}
-  popUp: {fileID: 0}
+  popUp: {fileID: 1000011832254612, guid: 14fb826f44ba2c5469036d270bef449a, type: 2}
 --- !u!1 &647986214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsDisplay: {fileID: 1966213634}
-  popUp: {fileID: 0}
+  popUp: {fileID: 1000010463315982, guid: a14f11cb71128b94baed1956c7d60ec3, type: 2}
 --- !u!1 &1252937000
 GameObject:
   m_ObjectHideFlags: 0

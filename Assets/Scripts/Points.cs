@@ -6,11 +6,9 @@ public class Points : MonoBehaviour {
 	public Text pointsDisplay;
 	public GameObject popUp;
 
-	private Animator anim; 
 	private int points;
 
 	void Start () {
-		anim = GetComponent<Animator> ();
 	}
 
 	void Update () {
