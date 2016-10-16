@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Recliner : Sofa {
@@ -16,6 +16,7 @@ public class Recliner : Sofa {
 		if (active) {
 			Vector3 force = Quaternion.AngleAxis (45, transform.forward) * transform.right;
 			coll.gameObject.GetComponent<Rigidbody> ().AddForce(force*throwSpeed, ForceMode.Impulse);
+            coll.gameObject.GetComponent<Employee>().GetFlung();
 			active = false;
 		}
 
