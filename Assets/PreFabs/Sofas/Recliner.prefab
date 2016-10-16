@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013889371116}
   - 33: {fileID: 33000011562554674}
   - 23: {fileID: 23000013547389954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 4: {fileID: 4000010811958936}
   - 65: {fileID: 65000013098864314}
   - 54: {fileID: 54000013660791272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Recliner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 4: {fileID: 4000010369496384}
   - 33: {fileID: 33000012099871832}
   - 23: {fileID: 23000011359741416}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - 4: {fileID: 4000010268945394}
   - 33: {fileID: 33000011719287368}
   - 23: {fileID: 23000012823740462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 4: {fileID: 4000012756343186}
   - 33: {fileID: 33000011051483248}
   - 23: {fileID: 23000012755994102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SeatL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - 4: {fileID: 4000013441274434}
   - 33: {fileID: 33000012793840126}
   - 23: {fileID: 23000013405151350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmrestR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - 4: {fileID: 4000011144213110}
   - 33: {fileID: 33000011402955844}
   - 23: {fileID: 23000013028346566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmrestL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - 4: {fileID: 4000014142630308}
   - 33: {fileID: 33000012679006174}
   - 23: {fileID: 23000013035870096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

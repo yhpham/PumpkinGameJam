@@ -279,7 +279,7 @@ GameObject:
   - 114: {fileID: 114000010850352858}
   m_Layer: 10
   m_Name: Long Couch
-  m_TagString: PRed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
