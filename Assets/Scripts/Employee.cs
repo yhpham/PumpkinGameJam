@@ -62,7 +62,7 @@ public class Employee : MonoBehaviour {
             rigid.angularVelocity = Vector3.zero;
         }
 
-        if (Input.GetButtonDown(jump) && !isJumping) {
+        if (Input.GetButton(jump) && !isJumping) {
             isJumping = true;
             rigid.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
         }
@@ -74,11 +74,15 @@ public class Employee : MonoBehaviour {
     }
 
     void Landing() {
+		
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.01f)) {
+		Debug.DrawRay (transform.position, Vector3.down*1.35f, Color.green);
+		if (Physics.Raycast(transform.position+Vector3.down, Vector3.down*1.35f, out hit)) {
             if(hit.collider.CompareTag("Floor")) {
                 return;
             }
+			if (GetComponent<Rigidbody> ().velocity.y != 0)
+				return;
             isJumping = false;
         }
     }
