@@ -29,6 +29,9 @@ public class Employee : MonoBehaviour {
 
     bool invincible = false;
     float invincibilityTimer = 0;
+    public Material redMaterial;
+    public Material blueMaterial;
+    public Material invincibilityMat;
 
     bool extraPoints = false;
     float extraPointsTimer = 0;
@@ -118,22 +121,50 @@ public class Employee : MonoBehaviour {
         }
     }
 
+    float nextFlash = 0.0f;
+    float flashPeriod = 0.1f;
     void PowerUpTimers() {
         if (invincible) {
+            if (Time.time > nextFlash) {
+                Invoke("InvincibilityFlash", 0f);
+                nextFlash = Time.time + flashPeriod;
+            }
             invincibilityTimer += Time.deltaTime;
-            
+
             if (invincibilityTimer > powerUpDuration) {
                 invincible = false;
                 invincibilityTimer = 0;
             }
         }
-
         if (extraPoints) {
             extraPointsTimer += Time.deltaTime;
-            
+
             if (extraPointsTimer > powerUpDuration) {
                 extraPoints = false;
                 extraPointsTimer = 0;
+            }
+        }
+    }
+
+    bool drawInvincible = true;
+    void InvincibilityFlash() {
+        Renderer[] parts = GetComponentsInChildren<Renderer>();
+        if (drawInvincible) {
+            drawInvincible = false;
+            foreach (Renderer rend in parts)
+                rend.material = invincibilityMat;
+        }
+        else {
+            drawInvincible = true;
+            switch (gameObject.tag) {
+                case "PRed":
+                    foreach (Renderer rend in parts)
+                        rend.material = redMaterial;
+                    break;
+                case "PBlue":
+                    foreach (Renderer rend in parts)
+                        rend.material = blueMaterial;
+                    break;
             }
         }
     }
