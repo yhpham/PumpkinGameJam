@@ -109,7 +109,7 @@ public class Employee : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {        
         if (col.tag == "Coin") {
-            points.Notify(pointsForCoin);
+			points.Notify(pointsForCoin, transform.position);
             Destroy(col.gameObject);
         }
     }
