@@ -21,14 +21,11 @@ public class Employee : MonoBehaviour {
 	public AudioClip[] sounds;
 	private AudioSource soundSource;
 
-    float startEarning;
-    const float earningInterval = 0.5f;
 
-    const int pointsForCouch = -20;
-    const int pointsForDying = -50;
-    const int pointsForLiving = 10;
-    const int pointsForEndFirst = 150;
     const int pointsForCoin = 50;
+    const int pointsForCouch = -20;
+    const int pointsForDying = -100;
+    const int pointsForEndFirst = 150;
 
     private Points points;
 
@@ -46,8 +43,6 @@ public class Employee : MonoBehaviour {
         if (!disableMovement) {
             Move();
         }
-
-        Score();
     }
 
     void Move() {
@@ -124,19 +119,6 @@ public class Employee : MonoBehaviour {
         }
     }
 
-    void Score() {
-        if (_isDead) {
-            return;
-        }
-
-        startEarning += Time.deltaTime;
-
-        if (startEarning > earningInterval) {
-            points.Notify(pointsForLiving);
-            startEarning = 0;
-        }
-    }
-
 	public void GetFlung(Vector3 newPos) {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
 		transform.position = newPos;
@@ -151,12 +133,10 @@ public class Employee : MonoBehaviour {
         points.Notify(pointsForDying, pos);
         _isDead = true;
         disableMovement = true;
-        startEarning = 0;
     }
 
     public void Live() {
         _isDead = false;
-        startEarning = 0;
     }
 
     public Vector3 tPosition {
